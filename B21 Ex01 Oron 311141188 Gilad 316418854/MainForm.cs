@@ -11,7 +11,7 @@ using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
 
 
-namespace WindowsFormsApp1
+namespace B21_Ex01_Oron_311141188_Gilad_316418854
 {
     public partial class MainForm : Form
     {

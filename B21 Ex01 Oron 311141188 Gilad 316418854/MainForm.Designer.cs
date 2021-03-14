@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace B21_Ex01_Oron_311141188_Gilad_316418854
 {
     partial class MainForm
     {

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.902
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B21 Ex01 Oron 311141188 Gilad 316418854", "WindowsFormsApp1\B21 Ex01 Oron 311141188 Gilad 316418854.csproj", "{27C49228-4692-43AD-9447-D0540C52EDD9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B21 Ex01 Oron 311141188 Gilad 316418854", "B21 Ex01 Oron 311141188 Gilad 316418854\B21 Ex01 Oron 311141188 Gilad 316418854.csproj", "{27C49228-4692-43AD-9447-D0540C52EDD9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
