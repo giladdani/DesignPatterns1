@@ -97,15 +97,31 @@ namespace FacebookDeskAppLogic
             }
         }
 
-        private string GetPlaceNamesOfPosts()
+        private List<string> GetPlaceNamesOfPosts()
         {
+            List<string> placesNamesList = new List<string>();
+
             if (m_DictionaryOfPostsByPlaces.Count != 0)
             {
                 foreach (KeyValuePair<string, List<PostWrapper>> entry in m_dictionaryOfPostsByPlaces)
                 {
                     string placeName = entry.Key;
-                    comboBoxPostsSubFilter.Items.Add(placeName);
+                    placesNamesList.Add(placeName);
                 }
+            }
+
+            return placesNamesList;
+        }
+
+        private ICollection<PostWrapper> GetAllPosts()
+        {
+            if (m_DictionaryOfPostsByPostID.Count != 0)
+            {
+                return m_DictionaryOfPostsByPostID.Values;
+            }
+            else
+            {
+                return null;
             }
         }
     }

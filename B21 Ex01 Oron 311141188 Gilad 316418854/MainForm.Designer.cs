@@ -145,7 +145,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(167, 43);
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBoxLogin_Click);
             // 
             // fileSystemWatcher2
             // 
@@ -494,7 +494,7 @@
             this.comboBoxPostsSubFilter.Name = "comboBoxPostsSubFilter";
             this.comboBoxPostsSubFilter.Size = new System.Drawing.Size(131, 21);
             this.comboBoxPostsSubFilter.TabIndex = 2;
-            this.comboBoxPostsSubFilter.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBoxPostsSubFilter.SelectedIndexChanged += new System.EventHandler(this.comboBoxPostsSubFilter_SelectedIndexChanged);
             // 
             // listBoxShowPosts
             // 
@@ -503,7 +503,7 @@
             this.listBoxShowPosts.Name = "listBoxShowPosts";
             this.listBoxShowPosts.Size = new System.Drawing.Size(156, 134);
             this.listBoxShowPosts.TabIndex = 1;
-            this.listBoxShowPosts.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.listBoxShowPosts.SelectedIndexChanged += new System.EventHandler(this.listBoxPosts_SelectedIndexChanged);
             // 
             // labelPostsSubFilter
             // 
@@ -530,7 +530,7 @@
             this.comboBoxPostsFilter.Name = "comboBoxPostsFilter";
             this.comboBoxPostsFilter.Size = new System.Drawing.Size(131, 21);
             this.comboBoxPostsFilter.TabIndex = 12;
-            this.comboBoxPostsFilter.SelectedIndexChanged += new System.EventHandler(this.comboBoxCategoryPosts_SelectedIndexChanged);
+            this.comboBoxPostsFilter.SelectedIndexChanged += new System.EventHandler(this.comboBoxPostsFilter_SelectedIndexChanged);
             // 
             // panelCreatePost
             // 
