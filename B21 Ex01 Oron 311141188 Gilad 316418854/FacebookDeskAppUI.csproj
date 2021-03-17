@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>B21_Ex01_Oron_311141188_Gilad_316418854.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Facebook">
       <HintPath>.\Facebook.dll</HintPath>

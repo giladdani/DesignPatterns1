@@ -159,7 +159,7 @@ namespace FacebookDeskAppLogic
                 m_User = result.LoggedInUser;
         }
 
-        private void FetchPosts()
+        public void FetchPosts()
         {
             FacebookObjectCollection<Post> posts = m_User.Posts;
 
@@ -176,7 +176,7 @@ namespace FacebookDeskAppLogic
             }
         }
 
-        private void FetchAlbums()
+        public void FetchAlbums()
         {
             foreach (Album album in m_User.Albums)
             {
