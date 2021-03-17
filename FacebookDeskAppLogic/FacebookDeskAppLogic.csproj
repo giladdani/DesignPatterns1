@@ -38,6 +38,8 @@
     <Compile Include="LoggedinUserData.cs" />
     <Compile Include="AlbumWrapper.cs" />
     <Compile Include="PhotoWrapper.cs" />
+    <Compile Include="GroupWrapper.cs" />
+    <Compile Include="UserWrapper.cs" />
     <Compile Include="PostWrapper.cs" />
   </ItemGroup>
   <ItemGroup>

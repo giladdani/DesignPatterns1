@@ -230,6 +230,11 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
                 SetUserDetails();
                 SetComboBoxPostsFilter();
                 setListBoxAlbums();
+                m_LoggedinUserData.FetchFriends();
+                m_LoggedinUserData.FetchGroups();
+                setListBox(m_LoggedinUserData.getAllFriends(), listBoxFriends);
+                setListBox(m_LoggedinUserData.getAllGroups(), listBoxGroups);
+
 
                 //Console.WriteLine("Access Token: " + result.AccessToken);
                 //Console.WriteLine("UserName:" + m_User.Name + "\n");
@@ -283,5 +288,19 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
             pictureBoxPhoto.ImageLocation = photoWrapper.Photo.PictureNormalURL;
         }
 
+        private void listBoxFriends_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UserWrapper userWrapper = listBoxFriends.SelectedItem as UserWrapper;
+
+            labelFriendNameVal.Text = userWrapper.User.Name;
+            labelFriendGenderVal.Text = userWrapper.User.Gender.ToString();
+            labelFriendBirthYearVal.Text = userWrapper.User.Birthday.ToString();
+        }
+
+        private void listBoxGroups_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GroupWrapper groupWrapper = listBoxGroups.SelectedItem as GroupWrapper;
+            labelAboutThisGroup.Text = groupWrapper.Group.Description;
+        }
     }
 }

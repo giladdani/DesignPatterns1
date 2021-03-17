@@ -18,7 +18,9 @@ namespace FacebookDeskAppLogic
         private IDictionary<string, List<PhotoWrapper>> m_DictionaryOfPhotosByAlbumName = new Dictionary<string, List<PhotoWrapper>>();
 
         private ICollection<AlbumWrapper> m_ListOfAlbums = new List<AlbumWrapper>();
-            
+
+        private ICollection<UserWrapper> m_ListOfFriends = new List<UserWrapper>();
+        private ICollection<GroupWrapper> m_ListOfGroups = new List<GroupWrapper>();
         public LoggedinUserData()
         {
             login();
@@ -174,6 +176,22 @@ namespace FacebookDeskAppLogic
             }
         }
 
+        public void FetchFriends()
+        {
+            foreach (User friend in m_User.Friends)
+            {
+                m_ListOfFriends.Add(new UserWrapper(friend));
+            }
+        }
+
+        public void FetchGroups()
+        {
+            foreach (Group group in m_User.Groups)
+            {
+                m_ListOfGroups.Add(new GroupWrapper(group));
+            }
+        }
+
         public void FetchAlbums()
         {
             foreach (Album album in m_User.Albums)
@@ -228,6 +246,16 @@ namespace FacebookDeskAppLogic
             {
                 return null;
             }
+        }
+
+        public ICollection<UserWrapper> getAllFriends()
+        {
+            return m_ListOfFriends;
+        }
+
+        public ICollection<GroupWrapper> getAllGroups()
+        {
+            return m_ListOfGroups;
         }
 
         public ICollection<AlbumWrapper> getAllAlbums()

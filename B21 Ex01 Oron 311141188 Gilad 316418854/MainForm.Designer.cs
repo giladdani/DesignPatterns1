@@ -214,6 +214,7 @@
             this.listBoxGroups.Name = "listBoxGroups";
             this.listBoxGroups.Size = new System.Drawing.Size(208, 316);
             this.listBoxGroups.TabIndex = 1;
+            this.listBoxGroups.SelectedIndexChanged += new System.EventHandler(this.listBoxGroups_SelectedIndexChanged);
             // 
             // tabFriends
             // 
@@ -349,6 +350,7 @@
             this.listBoxFriends.Name = "listBoxFriends";
             this.listBoxFriends.Size = new System.Drawing.Size(208, 316);
             this.listBoxFriends.TabIndex = 0;
+            this.listBoxFriends.SelectedIndexChanged += new System.EventHandler(this.listBoxFriends_SelectedIndexChanged);
             // 
             // tabPhotos
             // 
