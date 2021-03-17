@@ -13,12 +13,17 @@ namespace FacebookDeskAppLogic
         // Private Members
         private User m_User;
         private IDictionary<string, List<PostWrapper>> m_DictionaryOfPostsByPlaces = new Dictionary<string, List<PostWrapper>>();
-        private IDictionary<string, PostWrapper> m_DictionaryOfPostsByPostID = new Dictionary<string, PostWrapper>();
+        private IDictionary<string, List<PostWrapper>> m_DictionaryOfPostsByLikes = new Dictionary<string, List<PostWrapper>>();
+        private IDictionary<string, List<PostWrapper>> m_DictionaryOfPostsByComments = new Dictionary<string, List<PostWrapper>>();
+        private IDictionary<string, List<PhotoWrapper>> m_DictionaryOfPhotosByAlbumName = new Dictionary<string, List<PhotoWrapper>>();
 
+        private ICollection<AlbumWrapper> m_ListOfAlbums = new List<AlbumWrapper>();
+            
         public LoggedinUserData()
         {
             login();
             FetchPosts();
+            FetchAlbums();
         }
 
         public User User
@@ -33,19 +38,78 @@ namespace FacebookDeskAppLogic
             }
         }
 
-        private void AddPostToDictionaryByPlace(string placeName, PostWrapper post)
+        private void AddElementToDictionaryByKey<T>(string i_Key, IDictionary<string, List<T>> i_Dictionary, T i_Element)
         {
-            if (m_DictionaryOfPostsByPlaces.ContainsKey(placeName))
+            if (i_Dictionary.ContainsKey(i_Key))
             {
-                m_DictionaryOfPostsByPlaces[placeName].Add(post);
+                i_Dictionary[i_Key].Add(i_Element);
             }
             else
             {
-                m_DictionaryOfPostsByPlaces.Add(placeName, new List<PostWrapper>());
-                m_DictionaryOfPostsByPlaces[placeName].Add(post);
+                i_Dictionary.Add(i_Key, new List<T>());
+                i_Dictionary[i_Key].Add(i_Element);
             }
         }
 
+
+        private void AddPostToDictionaryByKey(string i_Key, IDictionary<string, List<PostWrapper>> i_DictionaryOfPosts, PostWrapper post)
+        {
+            if (i_DictionaryOfPosts.ContainsKey(i_Key))
+            {
+                i_DictionaryOfPosts[i_Key].Add(post);
+            }
+            else
+            {
+                i_DictionaryOfPosts.Add(i_Key, new List<PostWrapper>());
+                i_DictionaryOfPosts[i_Key].Add(post);
+            }
+        }
+
+        private void AddPostToDictionaryByPlace(string i_PlaceName, PostWrapper i_Post)
+        {
+            AddElementToDictionaryByKey<PostWrapper>(i_PlaceName, m_DictionaryOfPostsByPlaces, i_Post);
+        }
+        private void AddPostToDictionaryByLikes(PostWrapper i_PostWrapper)
+        {
+            int numOfLikes = i_PostWrapper.Post.LikedBy.Count();
+            AddPostToDictionaryByNumericValue(numOfLikes, m_DictionaryOfPostsByLikes, i_PostWrapper);
+        }
+
+        private void AddPostToDictionaryByNumericValue(int numericValue, IDictionary<string, List<PostWrapper>> i_DictionaryOfPosts, PostWrapper i_PostWrapper)
+        {
+            if (numericValue >= 1 && numericValue <= 10)
+            {
+                AddElementToDictionaryByKey("1-10", i_DictionaryOfPosts, i_PostWrapper);
+            }
+            else if (numericValue >= 11 && numericValue <= 20)
+            {
+                AddElementToDictionaryByKey("11-20", i_DictionaryOfPosts, i_PostWrapper);
+            }
+            else if (numericValue >= 21 && numericValue <= 50)
+            {
+                AddElementToDictionaryByKey("1-10", i_DictionaryOfPosts, i_PostWrapper);
+            }
+            else if (numericValue >= 51 && numericValue <= 100)
+            {
+                AddElementToDictionaryByKey("51-100", i_DictionaryOfPosts, i_PostWrapper);
+            }
+            else if (numericValue >= 101 && numericValue <= 200)
+            {
+                AddElementToDictionaryByKey("101-200", i_DictionaryOfPosts, i_PostWrapper);
+            }
+            else if (numericValue > 200)
+            {
+                AddElementToDictionaryByKey(">200", i_DictionaryOfPosts, i_PostWrapper);
+            }
+        }
+
+        private void AddPostToDictionaryByComments(PostWrapper i_PostWrapper)
+        {
+            int numOfComments = i_PostWrapper.Post.Comments.Count();
+
+            AddPostToDictionaryByNumericValue(numOfComments, m_DictionaryOfPostsByComments, i_PostWrapper);
+
+        }
         public List<PostWrapper> getListOfPostsByPlaceName(string i_PlaceName)
         {
             List<PostWrapper> listOfPosts = m_DictionaryOfPostsByPlaces[i_PlaceName];
@@ -120,14 +184,26 @@ namespace FacebookDeskAppLogic
                 if (page != null && page.Name != null)
                 {
                     AddPostToDictionaryByPlace(page.Name, postWrapper);
+                    AddPostToDictionaryByComments(postWrapper);
+                    AddPostToDictionaryByLikes(postWrapper);
                 }
-                m_DictionaryOfPostsByPostID.Add(post.Id, postWrapper);
 
             }
         }
 
         private void FetchAlbums()
         {
+            foreach (Album album in m_User.Albums)
+            {
+                m_ListOfAlbums.Add(new AlbumWrapper(album));
+                int index = 1;
+                foreach (Photo photo in album.Photos)
+                {
+                    AddElementToDictionaryByKey(album.Name, m_DictionaryOfPhotosByAlbumName, new PhotoWrapper(photo, index));
+                    index++;
+                }
+            }
+            
 
         }
 
@@ -149,9 +225,21 @@ namespace FacebookDeskAppLogic
 
         public ICollection<PostWrapper> getAllPosts()
         {
-            if (m_DictionaryOfPostsByPostID.Count != 0)
+            if (m_User.Posts.Count != 0)
             {
-                return m_DictionaryOfPostsByPostID.Values;
+                return (ICollection<PostWrapper>)m_User.Posts;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public ICollection<AlbumWrapper> getAllAlbums()
+        {
+            if (m_User.Posts.Count != 0)
+            {
+                return m_ListOfAlbums;
             }
             else
             {
