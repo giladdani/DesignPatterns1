@@ -394,6 +394,7 @@
             this.listBoxPhotos.Name = "listBoxPhotos";
             this.listBoxPhotos.Size = new System.Drawing.Size(91, 121);
             this.listBoxPhotos.TabIndex = 5;
+            this.listBoxPhotos.SelectedIndexChanged += new System.EventHandler(this.listBoxPhotos_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -413,6 +414,7 @@
             this.listBoxAlbums.Name = "listBoxAlbums";
             this.listBoxAlbums.Size = new System.Drawing.Size(89, 108);
             this.listBoxAlbums.TabIndex = 1;
+            this.listBoxAlbums.SelectedIndexChanged += new System.EventHandler(this.listBoxAlbums_SelectedIndexChanged);
             // 
             // tabPosts
             // 

@@ -51,23 +51,9 @@ namespace FacebookDeskAppLogic
             }
         }
 
-
-        private void AddPostToDictionaryByKey(string i_Key, IDictionary<string, List<PostWrapper>> i_DictionaryOfPosts, PostWrapper post)
-        {
-            if (i_DictionaryOfPosts.ContainsKey(i_Key))
-            {
-                i_DictionaryOfPosts[i_Key].Add(post);
-            }
-            else
-            {
-                i_DictionaryOfPosts.Add(i_Key, new List<PostWrapper>());
-                i_DictionaryOfPosts[i_Key].Add(post);
-            }
-        }
-
         private void AddPostToDictionaryByPlace(string i_PlaceName, PostWrapper i_Post)
         {
-            AddElementToDictionaryByKey<PostWrapper>(i_PlaceName, m_DictionaryOfPostsByPlaces, i_Post);
+            AddElementToDictionaryByKey(i_PlaceName, m_DictionaryOfPostsByPlaces, i_Post);
         }
         private void AddPostToDictionaryByLikes(PostWrapper i_PostWrapper)
         {
@@ -87,7 +73,7 @@ namespace FacebookDeskAppLogic
             }
             else if (numericValue >= 21 && numericValue <= 50)
             {
-                AddElementToDictionaryByKey("1-10", i_DictionaryOfPosts, i_PostWrapper);
+                AddElementToDictionaryByKey("21-50", i_DictionaryOfPosts, i_PostWrapper);
             }
             else if (numericValue >= 51 && numericValue <= 100)
             {
@@ -99,7 +85,7 @@ namespace FacebookDeskAppLogic
             }
             else if (numericValue > 200)
             {
-                AddElementToDictionaryByKey(">200", i_DictionaryOfPosts, i_PostWrapper);
+                AddElementToDictionaryByKey("Above 200", i_DictionaryOfPosts, i_PostWrapper);
             }
         }
 
@@ -245,6 +231,11 @@ namespace FacebookDeskAppLogic
             {
                 return null;
             }
+        }
+
+        public ICollection<PhotoWrapper> getPhotosByAlbumName(string i_AlbumName)
+        {
+            return m_DictionaryOfPhotosByAlbumName[i_AlbumName];
         }
     }
 }

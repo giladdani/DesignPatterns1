@@ -30,39 +30,47 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
 
         //----------------------------------------------------------------------//
         //----------------------------------------------------------------------//
+        //------------------------  General functions  -------------------------//
+        //----------------------------------------------------------------------//
+        //----------------------------------------------------------------------//
+
+
+        private void setListBox<T>(ICollection<T> list, ListBox listBox)
+        {
+            foreach (T elem in list)
+            {
+                listBox.Items.Add(elem);
+            }
+        }
+
+        //----------------------------------------------------------------------//
+        //----------------------------------------------------------------------//
         //------------------- Setting ListBox of posts functions----------------//
         //----------------------------------------------------------------------//
         //----------------------------------------------------------------------//
 
-        private void SetListBoxPostsByCollectionOfPosts(ICollection<PostWrapper> collectionOfPosts)
-        {
-            foreach (PostWrapper post in collectionOfPosts)
-            {
-                listBoxShowPosts.Items.Add(post);
-            }
-        }
         private void SetPostsListByPlaces(string i_PlaceName)
         {
             List<PostWrapper> listOfPosts = m_LoggedinUserData.getListOfPostsByPlaceName(i_PlaceName);
-            SetListBoxPostsByCollectionOfPosts(listOfPosts);
+            setListBox(listOfPosts, listBoxShowPosts);
         }
 
         private void SetListBoxPostsByComments(string i_NumOfComments)
         {
             List<PostWrapper> listOfPosts = m_LoggedinUserData.getListOfPostsByNumOfComments(i_NumOfComments);
-            SetListBoxPostsByCollectionOfPosts(listOfPosts);
+            setListBox(listOfPosts, listBoxShowPosts);
         }
 
         private void SetListBoxPostsByLikes(string i_NumOfLikes)
         {
             List<PostWrapper> listOfPosts = m_LoggedinUserData.getListOfPostsByNumOfLikes(i_NumOfLikes);
-            SetListBoxPostsByCollectionOfPosts(listOfPosts);
+            setListBox(listOfPosts, listBoxShowPosts);
         }
 
         private void SetListBoxPostsByListOfAll()
         {
             ICollection<PostWrapper> listOfPosts = m_LoggedinUserData.getAllPosts();
-            SetListBoxPostsByCollectionOfPosts(listOfPosts);
+            setListBox(listOfPosts, listBoxShowPosts);
         }
 
         private void listBoxPosts_SelectedIndexChanged(object sender, EventArgs e)
@@ -222,5 +230,36 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
             pictureBoxProfile.ImageLocation = m_LoggedinUserData.User.PictureNormalURL;
         }
 
+
+        //----------------------------------------------------------------------//
+        //----------------------------------------------------------------------//
+        //---------------------------Albums functions---------------------------//
+        //----------------------------------------------------------------------//
+        //----------------------------------------------------------------------//
+
+        private void setListBoxAlbums()
+        {
+            listBoxAlbums.Items.Clear();
+            ICollection<AlbumWrapper> listOfAlbums = m_LoggedinUserData.getAllAlbums();
+            setListBox(listOfAlbums, listBoxPhotos);
+        }
+
+        private void setListBoxPhotos(string i_AlbumName)
+        {
+            listBoxPhotos.Items.Clear();
+            ICollection<PhotoWrapper> listOfPhotos = m_LoggedinUserData.getPhotosByAlbumName(i_AlbumName);
+            setListBox(listOfPhotos, listBoxPhotos);
+        }
+
+
+        private void listBoxAlbums_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBoxPhotos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
