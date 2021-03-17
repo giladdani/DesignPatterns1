@@ -15,7 +15,7 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
 {
     public partial class MainForm : Form
     {
-       
+        private LoggedinUserData m_LoggedinUserData;
 
         // Constructors
         public MainForm()
@@ -23,6 +23,7 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
             InitializeComponent();
             comboBoxPostsSubFilter.Enabled = false;
             labelPostsSubFilter.Enabled = false;
+            m_LoggedinUserData = new LoggedinUserData();
         }
 
         // Private Methods
@@ -149,8 +150,9 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
         //----------------------------------------------------------------------//
 
 
-        private void setComboBoxPostsFilter()
+        private void SetComboBoxPostsFilter()
         {
+            comboBoxPostsFilter.Items.Clear();
             comboBoxPostsFilter.Items.Add("All");
             comboBoxPostsFilter.Items.Add("Places");
             comboBoxPostsFilter.Items.Add("Likes");
@@ -201,12 +203,11 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
         {
             try
             {
-                login();
+                m_LoggedinUserData = new LoggedinUserData();
                 SetUserDetails();
-                fetchPosts();
-                fetchAlbums();
-                Console.WriteLine("Access Token: " + result.AccessToken);
-                Console.WriteLine("UserName:" + m_User.Name + "\n");
+                SetComboBoxPostsFilter();
+                //Console.WriteLine("Access Token: " + result.AccessToken);
+                //Console.WriteLine("UserName:" + m_User.Name + "\n");
             }
             catch (Exception ex)
             {
@@ -217,23 +218,9 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
 
         private void SetUserDetails()
         {
-            userNameLabel.Text = "Welcome, " + m_User.Name;
-            pictureBoxProfile.ImageLocation = m_User.PictureNormalURL;
+            userNameLabel.Text = "Welcome, " + m_LoggedinUserData.User.Name;
+            pictureBoxProfile.ImageLocation = m_LoggedinUserData.User.PictureNormalURL;
         }
 
-        private void fetchPosts()
-        {
-            setComboBoxPostsFilter();
-        }
-
-        private void fetchAlbums()
-        {
-
-        }
-
-        private void pictureBoxAbout_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

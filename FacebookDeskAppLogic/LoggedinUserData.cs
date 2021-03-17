@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using FacebookWrapper;
@@ -18,9 +15,25 @@ namespace FacebookDeskAppLogic
         private IDictionary<string, List<PostWrapper>> m_DictionaryOfPostsByPlaces = new Dictionary<string, List<PostWrapper>>();
         private IDictionary<string, PostWrapper> m_DictionaryOfPostsByPostID = new Dictionary<string, PostWrapper>();
 
+        public LoggedinUserData()
+        {
+            login();
+            FetchPosts();
+        }
 
+        public User User
+        {
+            get
+            {
+                return m_User;
+            }
+            set
+            {
+                m_User = value;
+            }
+        }
 
-        private void addPostToDictionaryByPlace(string placeName, PostWrapper post)
+        private void AddPostToDictionaryByPlace(string placeName, PostWrapper post)
         {
             if (m_DictionaryOfPostsByPlaces.ContainsKey(placeName))
             {
@@ -33,7 +46,7 @@ namespace FacebookDeskAppLogic
             }
         }
 
-        private List<PostWrapper> getListOfPostsByPlaceName(string i_PlaceName)
+        public List<PostWrapper> getListOfPostsByPlaceName(string i_PlaceName)
         {
             List<PostWrapper> listOfPosts = m_DictionaryOfPostsByPlaces[i_PlaceName];
             if (m_DictionaryOfPostsByPlaces.Count != 0)
@@ -46,7 +59,7 @@ namespace FacebookDeskAppLogic
             return listOfPosts;
         }
 
-        private void Login()
+        public void login()
         {
             string accessToken = "EAApWCcm2aMsBAPX5AVpKgzgOdYRAeafAvP8zPPKisGTUzLAhSqxebpdpzXWPyM0LSoZCDnCQGQNfzexYrzHQTCeCb9sv21F6sQYzt0Gwr6HVK5s8Tejc6ZCI9YzrZARCcvxD9eQ7u1sJvDRndgvhQ165GnU1m9IWy97QJZAH6QZDZD";
                 LoginResult result = FacebookService.Connect(accessToken);
@@ -76,28 +89,26 @@ namespace FacebookDeskAppLogic
         private void FetchPosts()
         {
             FacebookObjectCollection<Post> posts = m_User.Posts;
-            if (posts.Count != 0)
-            {
-                addPostToDictionaryFromPostsCollection(posts);
-            }
-        }
 
-        private void AddPostToDictionaryFromPostsCollection(FacebookObjectCollection<Post> posts)
-        {
             foreach (Post post in posts)
             {
                 PostWrapper postWrapper = new PostWrapper(post);
                 Page page = post.Place;
                 if (page != null && page.Name != null)
                 {
-                    addPostToDictionaryByPlace(page.Name, postWrapper);
+                    AddPostToDictionaryByPlace(page.Name, postWrapper);
                 }
                 m_DictionaryOfPostsByPostID.Add(post.Id, postWrapper);
 
             }
         }
 
-        private List<string> GetPlaceNamesOfPosts()
+        private void FetchAlbums()
+        {
+
+        }
+
+        private List<string> getPlaceNamesOfPosts()
         {
             List<string> placesNamesList = new List<string>();
 
@@ -113,7 +124,7 @@ namespace FacebookDeskAppLogic
             return placesNamesList;
         }
 
-        private ICollection<PostWrapper> GetAllPosts()
+        public ICollection<PostWrapper> getAllPosts()
         {
             if (m_DictionaryOfPostsByPostID.Count != 0)
             {
