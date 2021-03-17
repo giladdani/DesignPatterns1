@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using FacebookWrapper.ObjectModel;
 
-namespace B21_Ex01_Oron_311141188_Gilad_316418854
+namespace FacebookDeskAppLogic
 {
-    class PostWrapper
+    public class PostWrapper
     {
         private Post m_Post;
 

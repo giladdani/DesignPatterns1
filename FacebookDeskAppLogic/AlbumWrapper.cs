@@ -4,38 +4,38 @@ using System.Linq;
 using System.Text;
 using FacebookWrapper.ObjectModel;
 
-namespace B21_Ex01_Oron_311141188_Gilad_316418854
+namespace FacebookDeskAppLogic
 {
-    class PostWrapper
+    public class AlbumWrapper
     {
-        private Post m_Post;
+        private Album m_Album;
 
-        public PostWrapper(Post i_Post)
+        public AlbumWrapper(Album i_Album)
         {
-            m_Post = i_Post;
+            m_Album = i_Album;
         }
 
-        public Post Post
+        public Album Album
         {
             get
             {
-                return m_Post;
+                return m_Album;
             }
             set
             {
-                m_Post = value;
+                m_Album = value;
             }
         }
 
         public override string ToString()
         {
-            if(string.IsNullOrEmpty(m_Post.Name))
+            if(string.IsNullOrEmpty(m_Album.Name))
             {
-                return string.Format("Unnamed Post");
+                return string.Format("Unnamed Album");
             }
             else
             {
-                return m_Post.Name;
+                return m_Album.Name;
             }
         }
     }
