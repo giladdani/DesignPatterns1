@@ -24,8 +24,8 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
         public MainForm()
         {
             InitializeComponent();
-            comboBox1.Enabled = false;
-            FilterPostsLabel.Enabled = false;
+            comboBoxPostsSubFilter.Enabled = false;
+            labelPostsSubFilter.Enabled = false;
         }
 
         // Private Methods
@@ -59,15 +59,15 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string placeName = comboBox1.Text;
-            listBox1.Items.Clear();
+            string placeName = comboBoxPostsSubFilter.Text;
+            listBoxShowPosts.Items.Clear();
                 
             if (m_dictionaryOfPostsByPlaces.Count != 0)
             {
                 List<PostWrapper> listOfPosts = m_dictionaryOfPostsByPlaces[placeName];
                 foreach (PostWrapper post in listOfPosts)
                 {
-                    listBox1.Items.Add(post);
+                    listBoxShowPosts.Items.Add(post);
 
                 }
             }
@@ -75,13 +75,13 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
 
         private void setAllPostsToList()
         {
-            listBox1.Items.Clear();
+            listBoxShowPosts.Items.Clear();
             if (m_dictionaryOfPostsByPostID.Count != 0)
             {
                 ICollection<PostWrapper> listOfPosts = m_dictionaryOfPostsByPostID.Values;
                 foreach(PostWrapper post in listOfPosts)
                 {
-                    listBox1.Items.Add(post);
+                    listBoxShowPosts.Items.Add(post);
                 }
             }
         }
@@ -94,7 +94,7 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
                 foreach (KeyValuePair<string, List<PostWrapper>> entry in m_dictionaryOfPostsByPlaces)
                 {
                     string placeName = entry.Key;
-                    comboBox1.Items.Add(placeName);
+                    comboBoxPostsSubFilter.Items.Add(placeName);
                 }
             }
 
@@ -103,14 +103,14 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
 
         private void setComboBoxCategoryPosts()
         {
-            comboBoxCategoryPosts.Items.Add("All");
-            comboBoxCategoryPosts.Items.Add("Places");
+            comboBoxPostsFilter.Items.Add("All");
+            comboBoxPostsFilter.Items.Add("Places");
 
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PostWrapper postWrapper = listBox1.SelectedItem as PostWrapper;
+            PostWrapper postWrapper = listBoxShowPosts.SelectedItem as PostWrapper;
             string postName = postWrapper.Post.Name;
             string postMessage = postWrapper.Post.Message;
             string postPictureURL = postWrapper.Post.PictureURL;
@@ -179,18 +179,18 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
 
         private void comboBoxCategoryPosts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string category = comboBoxCategoryPosts.Text;
+            string category = comboBoxPostsFilter.Text;
             if(category == "All")
             {
-                comboBox1.Enabled = false;
-                FilterPostsLabel.Enabled = false;
+                comboBoxPostsSubFilter.Enabled = false;
+                labelPostsSubFilter.Enabled = false;
                 setAllPostsToList();
             }
             else if(category == "Places")
             {
-                comboBox1.Enabled = true;
-                FilterPostsLabel.Enabled = true;
-                listBox1.Items.Clear();
+                comboBoxPostsSubFilter.Enabled = true;
+                labelPostsSubFilter.Enabled = true;
+                listBoxShowPosts.Items.Clear();
             }
         }
 
