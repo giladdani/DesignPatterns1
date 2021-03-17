@@ -247,6 +247,10 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
         {
             userNameLabel.Text = "Welcome, " + m_LoggedinUserData.User.Name;
             pictureBoxProfile.ImageLocation = m_LoggedinUserData.User.PictureNormalURL;
+            labelNameVal.Text = m_LoggedinUserData.User.Name;
+            pictureBoxAbout.ImageLocation = m_LoggedinUserData.User.Image;
+            labelGenderVal.Text = m_LoggedinUserData.age;
+            labelBirthYearVal.Text = m_LoggedinUserData.birth;
         }
 
 

@@ -79,13 +79,11 @@
             this.postBody = new System.Windows.Forms.Label();
             this.tabAbout = new System.Windows.Forms.TabPage();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.labelFromVal = new System.Windows.Forms.Label();
             this.labelBirthYearVal = new System.Windows.Forms.Label();
             this.labelGenderVal = new System.Windows.Forms.Label();
             this.labelNameVal = new System.Windows.Forms.Label();
             this.labelGender = new System.Windows.Forms.Label();
             this.labelBirthYear = new System.Windows.Forms.Label();
-            this.labelFrom = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
             this.pictureBoxAbout = new System.Windows.Forms.PictureBox();
             this.tabControl2 = new System.Windows.Forms.TabControl();
@@ -584,28 +582,17 @@
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.labelFromVal);
             this.panel10.Controls.Add(this.labelBirthYearVal);
             this.panel10.Controls.Add(this.labelGenderVal);
             this.panel10.Controls.Add(this.labelNameVal);
             this.panel10.Controls.Add(this.labelGender);
             this.panel10.Controls.Add(this.labelBirthYear);
-            this.panel10.Controls.Add(this.labelFrom);
             this.panel10.Controls.Add(this.labelName);
             this.panel10.Controls.Add(this.pictureBoxAbout);
             this.panel10.Location = new System.Drawing.Point(75, 58);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(262, 228);
             this.panel10.TabIndex = 3;
-            // 
-            // labelFromVal
-            // 
-            this.labelFromVal.AutoSize = true;
-            this.labelFromVal.Location = new System.Drawing.Point(79, 204);
-            this.labelFromVal.Name = "labelFromVal";
-            this.labelFromVal.Size = new System.Drawing.Size(35, 13);
-            this.labelFromVal.TabIndex = 8;
-            this.labelFromVal.Text = "empty";
             // 
             // labelBirthYearVal
             // 
@@ -651,15 +638,6 @@
             this.labelBirthYear.Size = new System.Drawing.Size(54, 13);
             this.labelBirthYear.TabIndex = 3;
             this.labelBirthYear.Text = "Birth year:";
-            // 
-            // labelFrom
-            // 
-            this.labelFrom.AutoSize = true;
-            this.labelFrom.Location = new System.Drawing.Point(19, 204);
-            this.labelFrom.Name = "labelFrom";
-            this.labelFrom.Size = new System.Drawing.Size(33, 13);
-            this.labelFrom.TabIndex = 2;
-            this.labelFrom.Text = "From:";
             // 
             // labelName
             // 
@@ -753,13 +731,11 @@
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabAbout;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Label labelFromVal;
         private System.Windows.Forms.Label labelBirthYearVal;
         private System.Windows.Forms.Label labelGenderVal;
         private System.Windows.Forms.Label labelNameVal;
         private System.Windows.Forms.Label labelGender;
         private System.Windows.Forms.Label labelBirthYear;
-        private System.Windows.Forms.Label labelFrom;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.PictureBox pictureBoxAbout;
         private System.Windows.Forms.TabPage tabPosts;
