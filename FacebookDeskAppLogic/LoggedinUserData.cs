@@ -58,7 +58,30 @@ namespace FacebookDeskAppLogic
             }
             return listOfPosts;
         }
-
+        public List<PostWrapper> getListOfPostsByNumOfLikes(string i_NumOfLikes)
+        {
+            List<PostWrapper> listOfPosts = m_DictionaryOfPostsByPlaces[i_NumOfLikes];
+            if (m_DictionaryOfPostsByPlaces.Count != 0)
+            {
+                foreach (PostWrapper post in listOfPosts)
+                {
+                    listOfPosts.Add(post);
+                }
+            }
+            return listOfPosts;
+        }
+        public List<PostWrapper> getListOfPostsByNumOfComments(string i_NumOfComments)
+        {
+            List<PostWrapper> listOfPosts = m_DictionaryOfPostsByPlaces[i_NumOfComments];
+            if (m_DictionaryOfPostsByPlaces.Count != 0)
+            {
+                foreach (PostWrapper post in listOfPosts)
+                {
+                    listOfPosts.Add(post);
+                }
+            }
+            return listOfPosts;
+        }
         public void login()
         {
             string accessToken = "EAApWCcm2aMsBAPX5AVpKgzgOdYRAeafAvP8zPPKisGTUzLAhSqxebpdpzXWPyM0LSoZCDnCQGQNfzexYrzHQTCeCb9sv21F6sQYzt0Gwr6HVK5s8Tejc6ZCI9YzrZARCcvxD9eQ7u1sJvDRndgvhQ165GnU1m9IWy97QJZAH6QZDZD";
@@ -108,13 +131,13 @@ namespace FacebookDeskAppLogic
 
         }
 
-        private List<string> getPlaceNamesOfPosts()
+        public List<string> getPlaceNamesOfPosts()
         {
             List<string> placesNamesList = new List<string>();
 
             if (m_DictionaryOfPostsByPlaces.Count != 0)
             {
-                foreach (KeyValuePair<string, List<PostWrapper>> entry in m_dictionaryOfPostsByPlaces)
+                foreach (KeyValuePair<string, List<PostWrapper>> entry in m_DictionaryOfPostsByPlaces)
                 {
                     string placeName = entry.Key;
                     placesNamesList.Add(placeName);

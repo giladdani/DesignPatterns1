@@ -674,7 +674,6 @@
             this.pictureBoxAbout.Size = new System.Drawing.Size(110, 102);
             this.pictureBoxAbout.TabIndex = 0;
             this.pictureBoxAbout.TabStop = false;
-            this.pictureBoxAbout.Click += new System.EventHandler(this.pictureBoxAbout_Click);
             // 
             // tabControl2
             // 

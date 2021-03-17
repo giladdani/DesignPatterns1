@@ -43,25 +43,25 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
         }
         private void SetPostsListByPlaces(string i_PlaceName)
         {
-            List<PostWrapper> listOfPosts = getListOfPostsByPlaceName(placeName);
+            List<PostWrapper> listOfPosts = m_LoggedinUserData.getListOfPostsByPlaceName(i_PlaceName);
             SetListBoxPostsByCollectionOfPosts(listOfPosts);
         }
 
         private void SetListBoxPostsByComments(string i_NumOfComments)
         {
-            List<PostWrapper> listOfPosts = getListOfPostsByNumOfComments(i_NumOfLikes);
+            List<PostWrapper> listOfPosts = m_LoggedinUserData.getListOfPostsByNumOfComments(i_NumOfComments);
             SetListBoxPostsByCollectionOfPosts(listOfPosts);
         }
 
         private void SetListBoxPostsByLikes(string i_NumOfLikes)
         {
-            List<PostWrapper> listOfPosts = getListOfPostsByNumOfLikes(i_NumOfLikes);
+            List<PostWrapper> listOfPosts = m_LoggedinUserData.getListOfPostsByNumOfLikes(i_NumOfLikes);
             SetListBoxPostsByCollectionOfPosts(listOfPosts);
         }
 
         private void SetListBoxPostsByListOfAll()
         {
-            ICollection<PostWrapper> listOfPosts = getAllPosts();
+            ICollection<PostWrapper> listOfPosts = m_LoggedinUserData.getAllPosts();
             SetListBoxPostsByCollectionOfPosts(listOfPosts);
         }
 
@@ -84,7 +84,7 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
         //----------------------------------------------------------------------//
 
 
-        private void setComboboxPostsSubFilter(ICollection<string> i_Options)
+        private void SetComboboxPostsSubFilter(ICollection<string> i_Options)
         {
             foreach (string option in i_Options)
             {
@@ -92,14 +92,14 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
             }
         }
 
-        private void setComboboxPostsSubFilterByPlaces()
+        private void SetComboboxPostsSubFilterByPlaces()
         {
 
-            List<string> listOfPlacesNames = getPlaceNamesOfPosts();
-            setComboboxPostsSubFilter(listOfPlacesNames);
+            List<string> listOfPlacesNames = m_LoggedinUserData.getPlaceNamesOfPosts();
+            SetComboboxPostsSubFilter(listOfPlacesNames);
         }
 
-        private void setComboboxPostsSubFilterByLikes()
+        private void SetComboboxPostsSubFilterByLikes()
         {
             SetComboboxPostsSubFilterByNumericOptions();
         }
@@ -118,7 +118,7 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
             listOfNumOfOptions.Add("51-100");
             listOfNumOfOptions.Add("100-200");
             listOfNumOfOptions.Add("Above 200");
-            setComboboxPostsSubFilter(listOfNumOfOptions);
+            SetComboboxPostsSubFilter(listOfNumOfOptions);
         }
 
         private void comboBoxPostsSubFilter_SelectedIndexChanged(object sender, EventArgs e)
@@ -172,12 +172,12 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
             else if (category == "Places")
             {
                 SetGeneralOptionsToSubFilterComponents();
-                setComboboxPostsSubFilterByPlaces();
+                SetComboboxPostsSubFilterByPlaces();
             }
             else if (category == "Likes")
             {
                 SetGeneralOptionsToSubFilterComponents();
-                setComboboxPostsSubFilterByLikes();
+                SetComboboxPostsSubFilterByLikes();
             }
             else if (category == "Comments")
             {
