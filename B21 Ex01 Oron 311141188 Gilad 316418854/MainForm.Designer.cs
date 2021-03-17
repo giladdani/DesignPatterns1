@@ -35,59 +35,59 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.fileSystemWatcher2 = new System.IO.FileSystemWatcher();
             this.tabGroups = new System.Windows.Forms.TabPage();
-            this.listBoxGroups = new System.Windows.Forms.ListBox();
+            this.labelListOfGroups = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.labelAboutThisGroup = new System.Windows.Forms.Label();
-            this.labelListOfGroups = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.listBoxGroups = new System.Windows.Forms.ListBox();
             this.tabFriends = new System.Windows.Forms.TabPage();
+            this.labelListOfFriends = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.labelFriendFromVal = new System.Windows.Forms.Label();
+            this.labelFriendBirthYearVal = new System.Windows.Forms.Label();
+            this.labelFriendGenderVal = new System.Windows.Forms.Label();
+            this.labelFriendNameVal = new System.Windows.Forms.Label();
+            this.labelFriendGender = new System.Windows.Forms.Label();
+            this.labelFriendBirthYear = new System.Windows.Forms.Label();
+            this.labelFriendPlace = new System.Windows.Forms.Label();
+            this.labelFriendName = new System.Windows.Forms.Label();
+            this.pictureBoxFriendProfile = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.listBoxFriends = new System.Windows.Forms.ListBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.pictureBoxFriendProfile = new System.Windows.Forms.PictureBox();
-            this.labelFriendName = new System.Windows.Forms.Label();
-            this.labelFriendPlace = new System.Windows.Forms.Label();
-            this.labelFriendBirthYear = new System.Windows.Forms.Label();
-            this.labelFriendGender = new System.Windows.Forms.Label();
-            this.labelFriendNameVal = new System.Windows.Forms.Label();
-            this.labelFriendGenderVal = new System.Windows.Forms.Label();
-            this.labelFriendBirthYearVal = new System.Windows.Forms.Label();
-            this.labelFriendFromVal = new System.Windows.Forms.Label();
-            this.labelListOfFriends = new System.Windows.Forms.Label();
             this.tabPhotos = new System.Windows.Forms.TabPage();
-            this.listBoxAlbums = new System.Windows.Forms.ListBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.listBoxPhotos = new System.Windows.Forms.ListBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.pictureBoxPhoto = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.listBoxPhotos = new System.Windows.Forms.ListBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.listBoxAlbums = new System.Windows.Forms.ListBox();
             this.tabPosts = new System.Windows.Forms.TabPage();
+            this.panelCreatePost = new System.Windows.Forms.Panel();
+            this.richTextBoxCreatePost = new System.Windows.Forms.RichTextBox();
+            this.buttonCreatePost = new System.Windows.Forms.Button();
+            this.labelCreatePost = new System.Windows.Forms.Label();
+            this.comboBoxPostsFilter = new System.Windows.Forms.ComboBox();
+            this.labelPostsFilter = new System.Windows.Forms.Label();
+            this.labelPostsSubFilter = new System.Windows.Forms.Label();
+            this.listBoxShowPosts = new System.Windows.Forms.ListBox();
+            this.comboBoxPostsSubFilter = new System.Windows.Forms.ComboBox();
             this.panelPost = new System.Windows.Forms.Panel();
-            this.panelPostBody = new System.Windows.Forms.Panel();
-            this.postBody = new System.Windows.Forms.Label();
+            this.pictureBoxPost = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.postNameLabel = new System.Windows.Forms.Label();
-            this.pictureBoxPost = new System.Windows.Forms.PictureBox();
-            this.comboBoxPostsSubFilter = new System.Windows.Forms.ComboBox();
-            this.listBoxShowPosts = new System.Windows.Forms.ListBox();
-            this.labelPostsSubFilter = new System.Windows.Forms.Label();
-            this.labelPostsFilter = new System.Windows.Forms.Label();
-            this.comboBoxPostsFilter = new System.Windows.Forms.ComboBox();
-            this.panelCreatePost = new System.Windows.Forms.Panel();
-            this.labelCreatePost = new System.Windows.Forms.Label();
-            this.buttonCreatePost = new System.Windows.Forms.Button();
-            this.richTextBoxCreatePost = new System.Windows.Forms.RichTextBox();
+            this.panelPostBody = new System.Windows.Forms.Panel();
+            this.postBody = new System.Windows.Forms.Label();
             this.tabAbout = new System.Windows.Forms.TabPage();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.pictureBoxAbout = new System.Windows.Forms.PictureBox();
-            this.labelName = new System.Windows.Forms.Label();
-            this.labelFrom = new System.Windows.Forms.Label();
-            this.labelBirthYear = new System.Windows.Forms.Label();
-            this.labelGender = new System.Windows.Forms.Label();
-            this.labelNameVal = new System.Windows.Forms.Label();
-            this.labelGenderVal = new System.Windows.Forms.Label();
-            this.labelBirthYearVal = new System.Windows.Forms.Label();
             this.labelFromVal = new System.Windows.Forms.Label();
+            this.labelBirthYearVal = new System.Windows.Forms.Label();
+            this.labelGenderVal = new System.Windows.Forms.Label();
+            this.labelNameVal = new System.Windows.Forms.Label();
+            this.labelGender = new System.Windows.Forms.Label();
+            this.labelBirthYear = new System.Windows.Forms.Label();
+            this.labelFrom = new System.Windows.Forms.Label();
+            this.labelName = new System.Windows.Forms.Label();
+            this.pictureBoxAbout = new System.Windows.Forms.PictureBox();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
@@ -97,17 +97,17 @@
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.tabFriends.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriendProfile)).BeginInit();
+            this.panel3.SuspendLayout();
             this.tabPhotos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).BeginInit();
             this.tabPosts.SuspendLayout();
-            this.panelPost.SuspendLayout();
-            this.panelPostBody.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost)).BeginInit();
             this.panelCreatePost.SuspendLayout();
+            this.panelPost.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost)).BeginInit();
+            this.panel4.SuspendLayout();
+            this.panelPostBody.SuspendLayout();
             this.tabAbout.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAbout)).BeginInit();
@@ -165,13 +165,14 @@
             this.tabGroups.Text = "Groups";
             this.tabGroups.UseVisualStyleBackColor = true;
             // 
-            // listBoxGroups
+            // labelListOfGroups
             // 
-            this.listBoxGroups.FormattingEnabled = true;
-            this.listBoxGroups.Location = new System.Drawing.Point(20, 43);
-            this.listBoxGroups.Name = "listBoxGroups";
-            this.listBoxGroups.Size = new System.Drawing.Size(208, 316);
-            this.listBoxGroups.TabIndex = 1;
+            this.labelListOfGroups.AutoSize = true;
+            this.labelListOfGroups.Location = new System.Drawing.Point(26, 18);
+            this.labelListOfGroups.Name = "labelListOfGroups";
+            this.labelListOfGroups.Size = new System.Drawing.Size(75, 13);
+            this.labelListOfGroups.TabIndex = 6;
+            this.labelListOfGroups.Text = "List of Groups:";
             // 
             // panel6
             // 
@@ -181,15 +182,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(250, 228);
             this.panel6.TabIndex = 3;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(22, 15);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(93, 13);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "About This Group:";
             // 
             // panel7
             // 
@@ -208,14 +200,22 @@
             this.labelAboutThisGroup.TabIndex = 5;
             this.labelAboutThisGroup.Text = "empty";
             // 
-            // labelListOfGroups
+            // label7
             // 
-            this.labelListOfGroups.AutoSize = true;
-            this.labelListOfGroups.Location = new System.Drawing.Point(26, 18);
-            this.labelListOfGroups.Name = "labelListOfGroups";
-            this.labelListOfGroups.Size = new System.Drawing.Size(75, 13);
-            this.labelListOfGroups.TabIndex = 6;
-            this.labelListOfGroups.Text = "List of Groups:";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(22, 15);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(93, 13);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "About This Group:";
+            // 
+            // listBoxGroups
+            // 
+            this.listBoxGroups.FormattingEnabled = true;
+            this.listBoxGroups.Location = new System.Drawing.Point(20, 43);
+            this.listBoxGroups.Name = "listBoxGroups";
+            this.listBoxGroups.Size = new System.Drawing.Size(208, 316);
+            this.listBoxGroups.TabIndex = 1;
             // 
             // tabFriends
             // 
@@ -231,21 +231,14 @@
             this.tabFriends.Text = "Friends";
             this.tabFriends.UseVisualStyleBackColor = true;
             // 
-            // panel3
+            // labelListOfFriends
             // 
-            this.panel3.Controls.Add(this.listBoxFriends);
-            this.panel3.Location = new System.Drawing.Point(23, 43);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(214, 325);
-            this.panel3.TabIndex = 1;
-            // 
-            // listBoxFriends
-            // 
-            this.listBoxFriends.FormattingEnabled = true;
-            this.listBoxFriends.Location = new System.Drawing.Point(3, 3);
-            this.listBoxFriends.Name = "listBoxFriends";
-            this.listBoxFriends.Size = new System.Drawing.Size(208, 316);
-            this.listBoxFriends.TabIndex = 0;
+            this.labelListOfFriends.AutoSize = true;
+            this.labelListOfFriends.Location = new System.Drawing.Point(23, 17);
+            this.labelListOfFriends.Name = "labelListOfFriends";
+            this.labelListOfFriends.Size = new System.Drawing.Size(72, 13);
+            this.labelListOfFriends.TabIndex = 7;
+            this.labelListOfFriends.Text = "List of friends:";
             // 
             // panel5
             // 
@@ -263,67 +256,14 @@
             this.panel5.Size = new System.Drawing.Size(262, 228);
             this.panel5.TabIndex = 2;
             // 
-            // pictureBoxFriendProfile
+            // labelFriendFromVal
             // 
-            this.pictureBoxFriendProfile.Location = new System.Drawing.Point(22, 41);
-            this.pictureBoxFriendProfile.Name = "pictureBoxFriendProfile";
-            this.pictureBoxFriendProfile.Size = new System.Drawing.Size(110, 102);
-            this.pictureBoxFriendProfile.TabIndex = 0;
-            this.pictureBoxFriendProfile.TabStop = false;
-            // 
-            // labelFriendName
-            // 
-            this.labelFriendName.AutoSize = true;
-            this.labelFriendName.Location = new System.Drawing.Point(22, 15);
-            this.labelFriendName.Name = "labelFriendName";
-            this.labelFriendName.Size = new System.Drawing.Size(68, 13);
-            this.labelFriendName.TabIndex = 1;
-            this.labelFriendName.Text = "Friend name:";
-            // 
-            // labelFriendPlace
-            // 
-            this.labelFriendPlace.AutoSize = true;
-            this.labelFriendPlace.Location = new System.Drawing.Point(28, 204);
-            this.labelFriendPlace.Name = "labelFriendPlace";
-            this.labelFriendPlace.Size = new System.Drawing.Size(33, 13);
-            this.labelFriendPlace.TabIndex = 2;
-            this.labelFriendPlace.Text = "From:";
-            // 
-            // labelFriendBirthYear
-            // 
-            this.labelFriendBirthYear.AutoSize = true;
-            this.labelFriendBirthYear.Location = new System.Drawing.Point(22, 180);
-            this.labelFriendBirthYear.Name = "labelFriendBirthYear";
-            this.labelFriendBirthYear.Size = new System.Drawing.Size(54, 13);
-            this.labelFriendBirthYear.TabIndex = 3;
-            this.labelFriendBirthYear.Text = "Birth year:";
-            // 
-            // labelFriendGender
-            // 
-            this.labelFriendGender.AutoSize = true;
-            this.labelFriendGender.Location = new System.Drawing.Point(31, 158);
-            this.labelFriendGender.Name = "labelFriendGender";
-            this.labelFriendGender.Size = new System.Drawing.Size(45, 13);
-            this.labelFriendGender.TabIndex = 4;
-            this.labelFriendGender.Text = "Gender:";
-            // 
-            // labelFriendNameVal
-            // 
-            this.labelFriendNameVal.AutoSize = true;
-            this.labelFriendNameVal.Location = new System.Drawing.Point(96, 15);
-            this.labelFriendNameVal.Name = "labelFriendNameVal";
-            this.labelFriendNameVal.Size = new System.Drawing.Size(35, 13);
-            this.labelFriendNameVal.TabIndex = 5;
-            this.labelFriendNameVal.Text = "empty";
-            // 
-            // labelFriendGenderVal
-            // 
-            this.labelFriendGenderVal.AutoSize = true;
-            this.labelFriendGenderVal.Location = new System.Drawing.Point(82, 158);
-            this.labelFriendGenderVal.Name = "labelFriendGenderVal";
-            this.labelFriendGenderVal.Size = new System.Drawing.Size(35, 13);
-            this.labelFriendGenderVal.TabIndex = 6;
-            this.labelFriendGenderVal.Text = "empty";
+            this.labelFriendFromVal.AutoSize = true;
+            this.labelFriendFromVal.Location = new System.Drawing.Point(66, 204);
+            this.labelFriendFromVal.Name = "labelFriendFromVal";
+            this.labelFriendFromVal.Size = new System.Drawing.Size(35, 13);
+            this.labelFriendFromVal.TabIndex = 8;
+            this.labelFriendFromVal.Text = "empty";
             // 
             // labelFriendBirthYearVal
             // 
@@ -334,23 +274,83 @@
             this.labelFriendBirthYearVal.TabIndex = 7;
             this.labelFriendBirthYearVal.Text = "empty";
             // 
-            // labelFriendFromVal
+            // labelFriendGenderVal
             // 
-            this.labelFriendFromVal.AutoSize = true;
-            this.labelFriendFromVal.Location = new System.Drawing.Point(66, 204);
-            this.labelFriendFromVal.Name = "labelFriendFromVal";
-            this.labelFriendFromVal.Size = new System.Drawing.Size(35, 13);
-            this.labelFriendFromVal.TabIndex = 8;
-            this.labelFriendFromVal.Text = "empty";
+            this.labelFriendGenderVal.AutoSize = true;
+            this.labelFriendGenderVal.Location = new System.Drawing.Point(82, 158);
+            this.labelFriendGenderVal.Name = "labelFriendGenderVal";
+            this.labelFriendGenderVal.Size = new System.Drawing.Size(35, 13);
+            this.labelFriendGenderVal.TabIndex = 6;
+            this.labelFriendGenderVal.Text = "empty";
             // 
-            // labelListOfFriends
+            // labelFriendNameVal
             // 
-            this.labelListOfFriends.AutoSize = true;
-            this.labelListOfFriends.Location = new System.Drawing.Point(23, 17);
-            this.labelListOfFriends.Name = "labelListOfFriends";
-            this.labelListOfFriends.Size = new System.Drawing.Size(72, 13);
-            this.labelListOfFriends.TabIndex = 7;
-            this.labelListOfFriends.Text = "List of friends:";
+            this.labelFriendNameVal.AutoSize = true;
+            this.labelFriendNameVal.Location = new System.Drawing.Point(96, 15);
+            this.labelFriendNameVal.Name = "labelFriendNameVal";
+            this.labelFriendNameVal.Size = new System.Drawing.Size(35, 13);
+            this.labelFriendNameVal.TabIndex = 5;
+            this.labelFriendNameVal.Text = "empty";
+            // 
+            // labelFriendGender
+            // 
+            this.labelFriendGender.AutoSize = true;
+            this.labelFriendGender.Location = new System.Drawing.Point(31, 158);
+            this.labelFriendGender.Name = "labelFriendGender";
+            this.labelFriendGender.Size = new System.Drawing.Size(45, 13);
+            this.labelFriendGender.TabIndex = 4;
+            this.labelFriendGender.Text = "Gender:";
+            // 
+            // labelFriendBirthYear
+            // 
+            this.labelFriendBirthYear.AutoSize = true;
+            this.labelFriendBirthYear.Location = new System.Drawing.Point(22, 180);
+            this.labelFriendBirthYear.Name = "labelFriendBirthYear";
+            this.labelFriendBirthYear.Size = new System.Drawing.Size(54, 13);
+            this.labelFriendBirthYear.TabIndex = 3;
+            this.labelFriendBirthYear.Text = "Birth year:";
+            // 
+            // labelFriendPlace
+            // 
+            this.labelFriendPlace.AutoSize = true;
+            this.labelFriendPlace.Location = new System.Drawing.Point(28, 204);
+            this.labelFriendPlace.Name = "labelFriendPlace";
+            this.labelFriendPlace.Size = new System.Drawing.Size(33, 13);
+            this.labelFriendPlace.TabIndex = 2;
+            this.labelFriendPlace.Text = "From:";
+            // 
+            // labelFriendName
+            // 
+            this.labelFriendName.AutoSize = true;
+            this.labelFriendName.Location = new System.Drawing.Point(22, 15);
+            this.labelFriendName.Name = "labelFriendName";
+            this.labelFriendName.Size = new System.Drawing.Size(68, 13);
+            this.labelFriendName.TabIndex = 1;
+            this.labelFriendName.Text = "Friend name:";
+            // 
+            // pictureBoxFriendProfile
+            // 
+            this.pictureBoxFriendProfile.Location = new System.Drawing.Point(22, 41);
+            this.pictureBoxFriendProfile.Name = "pictureBoxFriendProfile";
+            this.pictureBoxFriendProfile.Size = new System.Drawing.Size(110, 102);
+            this.pictureBoxFriendProfile.TabIndex = 0;
+            this.pictureBoxFriendProfile.TabStop = false;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.listBoxFriends);
+            this.panel3.Location = new System.Drawing.Point(23, 43);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(214, 325);
+            this.panel3.TabIndex = 1;
+            // 
+            // listBoxFriends
+            // 
+            this.listBoxFriends.FormattingEnabled = true;
+            this.listBoxFriends.Location = new System.Drawing.Point(3, 3);
+            this.listBoxFriends.Name = "listBoxFriends";
+            this.listBoxFriends.Size = new System.Drawing.Size(208, 316);
+            this.listBoxFriends.TabIndex = 0;
             // 
             // tabPhotos
             // 
@@ -368,33 +368,13 @@
             this.tabPhotos.Text = "Photos";
             this.tabPhotos.UseVisualStyleBackColor = true;
             // 
-            // listBoxAlbums
+            // pictureBoxPhoto
             // 
-            this.listBoxAlbums.FormattingEnabled = true;
-            this.listBoxAlbums.Location = new System.Drawing.Point(27, 54);
-            this.listBoxAlbums.Margin = new System.Windows.Forms.Padding(2);
-            this.listBoxAlbums.Name = "listBoxAlbums";
-            this.listBoxAlbums.Size = new System.Drawing.Size(89, 108);
-            this.listBoxAlbums.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 29);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Choose Album:";
-            // 
-            // listBoxPhotos
-            // 
-            this.listBoxPhotos.FormattingEnabled = true;
-            this.listBoxPhotos.Location = new System.Drawing.Point(25, 200);
-            this.listBoxPhotos.Margin = new System.Windows.Forms.Padding(2);
-            this.listBoxPhotos.Name = "listBoxPhotos";
-            this.listBoxPhotos.Size = new System.Drawing.Size(91, 121);
-            this.listBoxPhotos.TabIndex = 5;
+            this.pictureBoxPhoto.Location = new System.Drawing.Point(193, 64);
+            this.pictureBoxPhoto.Name = "pictureBoxPhoto";
+            this.pictureBoxPhoto.Size = new System.Drawing.Size(198, 206);
+            this.pictureBoxPhoto.TabIndex = 7;
+            this.pictureBoxPhoto.TabStop = false;
             // 
             // label3
             // 
@@ -406,13 +386,33 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Choose Photo:";
             // 
-            // pictureBoxPhoto
+            // listBoxPhotos
             // 
-            this.pictureBoxPhoto.Location = new System.Drawing.Point(193, 64);
-            this.pictureBoxPhoto.Name = "pictureBoxPhoto";
-            this.pictureBoxPhoto.Size = new System.Drawing.Size(198, 206);
-            this.pictureBoxPhoto.TabIndex = 7;
-            this.pictureBoxPhoto.TabStop = false;
+            this.listBoxPhotos.FormattingEnabled = true;
+            this.listBoxPhotos.Location = new System.Drawing.Point(25, 200);
+            this.listBoxPhotos.Margin = new System.Windows.Forms.Padding(2);
+            this.listBoxPhotos.Name = "listBoxPhotos";
+            this.listBoxPhotos.Size = new System.Drawing.Size(91, 121);
+            this.listBoxPhotos.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(24, 29);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Choose Album:";
+            // 
+            // listBoxAlbums
+            // 
+            this.listBoxAlbums.FormattingEnabled = true;
+            this.listBoxAlbums.Location = new System.Drawing.Point(27, 54);
+            this.listBoxAlbums.Margin = new System.Windows.Forms.Padding(2);
+            this.listBoxAlbums.Name = "listBoxAlbums";
+            this.listBoxAlbums.Size = new System.Drawing.Size(89, 108);
+            this.listBoxAlbums.TabIndex = 1;
             // 
             // tabPosts
             // 
@@ -432,6 +432,87 @@
             this.tabPosts.Text = "Posts";
             this.tabPosts.UseVisualStyleBackColor = true;
             // 
+            // panelCreatePost
+            // 
+            this.panelCreatePost.Controls.Add(this.richTextBoxCreatePost);
+            this.panelCreatePost.Controls.Add(this.buttonCreatePost);
+            this.panelCreatePost.Controls.Add(this.labelCreatePost);
+            this.panelCreatePost.Location = new System.Drawing.Point(16, 293);
+            this.panelCreatePost.Name = "panelCreatePost";
+            this.panelCreatePost.Size = new System.Drawing.Size(174, 106);
+            this.panelCreatePost.TabIndex = 16;
+            // 
+            // richTextBoxCreatePost
+            // 
+            this.richTextBoxCreatePost.Location = new System.Drawing.Point(17, 32);
+            this.richTextBoxCreatePost.Name = "richTextBoxCreatePost";
+            this.richTextBoxCreatePost.Size = new System.Drawing.Size(146, 42);
+            this.richTextBoxCreatePost.TabIndex = 16;
+            this.richTextBoxCreatePost.Text = "";
+            // 
+            // buttonCreatePost
+            // 
+            this.buttonCreatePost.Location = new System.Drawing.Point(44, 80);
+            this.buttonCreatePost.Name = "buttonCreatePost";
+            this.buttonCreatePost.Size = new System.Drawing.Size(75, 23);
+            this.buttonCreatePost.TabIndex = 15;
+            this.buttonCreatePost.Text = "Post";
+            this.buttonCreatePost.UseVisualStyleBackColor = true;
+            // 
+            // labelCreatePost
+            // 
+            this.labelCreatePost.AutoSize = true;
+            this.labelCreatePost.Location = new System.Drawing.Point(54, 16);
+            this.labelCreatePost.Name = "labelCreatePost";
+            this.labelCreatePost.Size = new System.Drawing.Size(62, 13);
+            this.labelCreatePost.TabIndex = 13;
+            this.labelCreatePost.Text = "Create Post";
+            // 
+            // comboBoxPostsFilter
+            // 
+            this.comboBoxPostsFilter.FormattingEnabled = true;
+            this.comboBoxPostsFilter.Location = new System.Drawing.Point(32, 45);
+            this.comboBoxPostsFilter.Name = "comboBoxPostsFilter";
+            this.comboBoxPostsFilter.Size = new System.Drawing.Size(131, 21);
+            this.comboBoxPostsFilter.TabIndex = 12;
+            this.comboBoxPostsFilter.SelectedIndexChanged += new System.EventHandler(this.comboBoxPostsFilter_SelectedIndexChanged);
+            // 
+            // labelPostsFilter
+            // 
+            this.labelPostsFilter.AutoSize = true;
+            this.labelPostsFilter.Location = new System.Drawing.Point(30, 21);
+            this.labelPostsFilter.Name = "labelPostsFilter";
+            this.labelPostsFilter.Size = new System.Drawing.Size(149, 13);
+            this.labelPostsFilter.TabIndex = 11;
+            this.labelPostsFilter.Text = "Choose category to filter posts";
+            // 
+            // labelPostsSubFilter
+            // 
+            this.labelPostsSubFilter.AutoSize = true;
+            this.labelPostsSubFilter.Location = new System.Drawing.Point(30, 78);
+            this.labelPostsSubFilter.Name = "labelPostsSubFilter";
+            this.labelPostsSubFilter.Size = new System.Drawing.Size(105, 13);
+            this.labelPostsSubFilter.TabIndex = 5;
+            this.labelPostsSubFilter.Text = "Filter posts by places";
+            // 
+            // listBoxShowPosts
+            // 
+            this.listBoxShowPosts.FormattingEnabled = true;
+            this.listBoxShowPosts.Location = new System.Drawing.Point(24, 142);
+            this.listBoxShowPosts.Name = "listBoxShowPosts";
+            this.listBoxShowPosts.Size = new System.Drawing.Size(156, 134);
+            this.listBoxShowPosts.TabIndex = 1;
+            this.listBoxShowPosts.SelectedIndexChanged += new System.EventHandler(this.listBoxPosts_SelectedIndexChanged);
+            // 
+            // comboBoxPostsSubFilter
+            // 
+            this.comboBoxPostsSubFilter.FormattingEnabled = true;
+            this.comboBoxPostsSubFilter.Location = new System.Drawing.Point(32, 104);
+            this.comboBoxPostsSubFilter.Name = "comboBoxPostsSubFilter";
+            this.comboBoxPostsSubFilter.Size = new System.Drawing.Size(131, 21);
+            this.comboBoxPostsSubFilter.TabIndex = 2;
+            this.comboBoxPostsSubFilter.SelectedIndexChanged += new System.EventHandler(this.comboBoxPostsSubFilter_SelectedIndexChanged);
+            // 
             // panelPost
             // 
             this.panelPost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -443,23 +524,14 @@
             this.panelPost.Size = new System.Drawing.Size(282, 351);
             this.panelPost.TabIndex = 10;
             // 
-            // panelPostBody
+            // pictureBoxPost
             // 
-            this.panelPostBody.AutoScroll = true;
-            this.panelPostBody.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelPostBody.Controls.Add(this.postBody);
-            this.panelPostBody.Location = new System.Drawing.Point(17, 55);
-            this.panelPostBody.Name = "panelPostBody";
-            this.panelPostBody.Size = new System.Drawing.Size(234, 144);
-            this.panelPostBody.TabIndex = 8;
-            // 
-            // postBody
-            // 
-            this.postBody.AutoSize = true;
-            this.postBody.Location = new System.Drawing.Point(25, 54);
-            this.postBody.Name = "postBody";
-            this.postBody.Size = new System.Drawing.Size(0, 13);
-            this.postBody.TabIndex = 7;
+            this.pictureBoxPost.Location = new System.Drawing.Point(64, 217);
+            this.pictureBoxPost.Name = "pictureBoxPost";
+            this.pictureBoxPost.Size = new System.Drawing.Size(139, 112);
+            this.pictureBoxPost.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxPost.TabIndex = 0;
+            this.pictureBoxPost.TabStop = false;
             // 
             // panel4
             // 
@@ -478,95 +550,23 @@
             this.postNameLabel.Size = new System.Drawing.Size(0, 13);
             this.postNameLabel.TabIndex = 6;
             // 
-            // pictureBoxPost
+            // panelPostBody
             // 
-            this.pictureBoxPost.Location = new System.Drawing.Point(64, 217);
-            this.pictureBoxPost.Name = "pictureBoxPost";
-            this.pictureBoxPost.Size = new System.Drawing.Size(139, 112);
-            this.pictureBoxPost.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxPost.TabIndex = 0;
-            this.pictureBoxPost.TabStop = false;
+            this.panelPostBody.AutoScroll = true;
+            this.panelPostBody.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelPostBody.Controls.Add(this.postBody);
+            this.panelPostBody.Location = new System.Drawing.Point(17, 55);
+            this.panelPostBody.Name = "panelPostBody";
+            this.panelPostBody.Size = new System.Drawing.Size(234, 144);
+            this.panelPostBody.TabIndex = 8;
             // 
-            // comboBoxPostsSubFilter
+            // postBody
             // 
-            this.comboBoxPostsSubFilter.FormattingEnabled = true;
-            this.comboBoxPostsSubFilter.Location = new System.Drawing.Point(32, 104);
-            this.comboBoxPostsSubFilter.Name = "comboBoxPostsSubFilter";
-            this.comboBoxPostsSubFilter.Size = new System.Drawing.Size(131, 21);
-            this.comboBoxPostsSubFilter.TabIndex = 2;
-            this.comboBoxPostsSubFilter.SelectedIndexChanged += new System.EventHandler(this.comboBoxPostsSubFilter_SelectedIndexChanged);
-            // 
-            // listBoxShowPosts
-            // 
-            this.listBoxShowPosts.FormattingEnabled = true;
-            this.listBoxShowPosts.Location = new System.Drawing.Point(24, 142);
-            this.listBoxShowPosts.Name = "listBoxShowPosts";
-            this.listBoxShowPosts.Size = new System.Drawing.Size(156, 134);
-            this.listBoxShowPosts.TabIndex = 1;
-            this.listBoxShowPosts.SelectedIndexChanged += new System.EventHandler(this.listBoxPosts_SelectedIndexChanged);
-            // 
-            // labelPostsSubFilter
-            // 
-            this.labelPostsSubFilter.AutoSize = true;
-            this.labelPostsSubFilter.Location = new System.Drawing.Point(30, 78);
-            this.labelPostsSubFilter.Name = "labelPostsSubFilter";
-            this.labelPostsSubFilter.Size = new System.Drawing.Size(105, 13);
-            this.labelPostsSubFilter.TabIndex = 5;
-            this.labelPostsSubFilter.Text = "Filter posts by places";
-            // 
-            // labelPostsFilter
-            // 
-            this.labelPostsFilter.AutoSize = true;
-            this.labelPostsFilter.Location = new System.Drawing.Point(30, 21);
-            this.labelPostsFilter.Name = "labelPostsFilter";
-            this.labelPostsFilter.Size = new System.Drawing.Size(149, 13);
-            this.labelPostsFilter.TabIndex = 11;
-            this.labelPostsFilter.Text = "Choose category to filter posts";
-            // 
-            // comboBoxPostsFilter
-            // 
-            this.comboBoxPostsFilter.FormattingEnabled = true;
-            this.comboBoxPostsFilter.Location = new System.Drawing.Point(32, 45);
-            this.comboBoxPostsFilter.Name = "comboBoxPostsFilter";
-            this.comboBoxPostsFilter.Size = new System.Drawing.Size(131, 21);
-            this.comboBoxPostsFilter.TabIndex = 12;
-            this.comboBoxPostsFilter.SelectedIndexChanged += new System.EventHandler(this.comboBoxPostsFilter_SelectedIndexChanged);
-            // 
-            // panelCreatePost
-            // 
-            this.panelCreatePost.Controls.Add(this.richTextBoxCreatePost);
-            this.panelCreatePost.Controls.Add(this.buttonCreatePost);
-            this.panelCreatePost.Controls.Add(this.labelCreatePost);
-            this.panelCreatePost.Location = new System.Drawing.Point(16, 293);
-            this.panelCreatePost.Name = "panelCreatePost";
-            this.panelCreatePost.Size = new System.Drawing.Size(174, 106);
-            this.panelCreatePost.TabIndex = 16;
-            // 
-            // labelCreatePost
-            // 
-            this.labelCreatePost.AutoSize = true;
-            this.labelCreatePost.Location = new System.Drawing.Point(54, 16);
-            this.labelCreatePost.Name = "labelCreatePost";
-            this.labelCreatePost.Size = new System.Drawing.Size(62, 13);
-            this.labelCreatePost.TabIndex = 13;
-            this.labelCreatePost.Text = "Create Post";
-            // 
-            // buttonCreatePost
-            // 
-            this.buttonCreatePost.Location = new System.Drawing.Point(44, 80);
-            this.buttonCreatePost.Name = "buttonCreatePost";
-            this.buttonCreatePost.Size = new System.Drawing.Size(75, 23);
-            this.buttonCreatePost.TabIndex = 15;
-            this.buttonCreatePost.Text = "Post";
-            this.buttonCreatePost.UseVisualStyleBackColor = true;
-            // 
-            // richTextBoxCreatePost
-            // 
-            this.richTextBoxCreatePost.Location = new System.Drawing.Point(17, 32);
-            this.richTextBoxCreatePost.Name = "richTextBoxCreatePost";
-            this.richTextBoxCreatePost.Size = new System.Drawing.Size(146, 42);
-            this.richTextBoxCreatePost.TabIndex = 16;
-            this.richTextBoxCreatePost.Text = "";
+            this.postBody.AutoSize = true;
+            this.postBody.Location = new System.Drawing.Point(25, 54);
+            this.postBody.Name = "postBody";
+            this.postBody.Size = new System.Drawing.Size(0, 13);
+            this.postBody.TabIndex = 7;
             // 
             // tabAbout
             // 
@@ -595,67 +595,14 @@
             this.panel10.Size = new System.Drawing.Size(262, 228);
             this.panel10.TabIndex = 3;
             // 
-            // pictureBoxAbout
+            // labelFromVal
             // 
-            this.pictureBoxAbout.Location = new System.Drawing.Point(22, 41);
-            this.pictureBoxAbout.Name = "pictureBoxAbout";
-            this.pictureBoxAbout.Size = new System.Drawing.Size(110, 102);
-            this.pictureBoxAbout.TabIndex = 0;
-            this.pictureBoxAbout.TabStop = false;
-            // 
-            // labelName
-            // 
-            this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(22, 15);
-            this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(38, 13);
-            this.labelName.TabIndex = 1;
-            this.labelName.Text = "Name:";
-            // 
-            // labelFrom
-            // 
-            this.labelFrom.AutoSize = true;
-            this.labelFrom.Location = new System.Drawing.Point(19, 204);
-            this.labelFrom.Name = "labelFrom";
-            this.labelFrom.Size = new System.Drawing.Size(33, 13);
-            this.labelFrom.TabIndex = 2;
-            this.labelFrom.Text = "From:";
-            // 
-            // labelBirthYear
-            // 
-            this.labelBirthYear.AutoSize = true;
-            this.labelBirthYear.Location = new System.Drawing.Point(19, 180);
-            this.labelBirthYear.Name = "labelBirthYear";
-            this.labelBirthYear.Size = new System.Drawing.Size(54, 13);
-            this.labelBirthYear.TabIndex = 3;
-            this.labelBirthYear.Text = "Birth year:";
-            // 
-            // labelGender
-            // 
-            this.labelGender.AutoSize = true;
-            this.labelGender.Location = new System.Drawing.Point(22, 158);
-            this.labelGender.Name = "labelGender";
-            this.labelGender.Size = new System.Drawing.Size(45, 13);
-            this.labelGender.TabIndex = 4;
-            this.labelGender.Text = "Gender:";
-            // 
-            // labelNameVal
-            // 
-            this.labelNameVal.AutoSize = true;
-            this.labelNameVal.Location = new System.Drawing.Point(66, 15);
-            this.labelNameVal.Name = "labelNameVal";
-            this.labelNameVal.Size = new System.Drawing.Size(35, 13);
-            this.labelNameVal.TabIndex = 5;
-            this.labelNameVal.Text = "empty";
-            // 
-            // labelGenderVal
-            // 
-            this.labelGenderVal.AutoSize = true;
-            this.labelGenderVal.Location = new System.Drawing.Point(73, 158);
-            this.labelGenderVal.Name = "labelGenderVal";
-            this.labelGenderVal.Size = new System.Drawing.Size(35, 13);
-            this.labelGenderVal.TabIndex = 6;
-            this.labelGenderVal.Text = "empty";
+            this.labelFromVal.AutoSize = true;
+            this.labelFromVal.Location = new System.Drawing.Point(79, 204);
+            this.labelFromVal.Name = "labelFromVal";
+            this.labelFromVal.Size = new System.Drawing.Size(35, 13);
+            this.labelFromVal.TabIndex = 8;
+            this.labelFromVal.Text = "empty";
             // 
             // labelBirthYearVal
             // 
@@ -666,14 +613,68 @@
             this.labelBirthYearVal.TabIndex = 7;
             this.labelBirthYearVal.Text = "empty";
             // 
-            // labelFromVal
+            // labelGenderVal
             // 
-            this.labelFromVal.AutoSize = true;
-            this.labelFromVal.Location = new System.Drawing.Point(79, 204);
-            this.labelFromVal.Name = "labelFromVal";
-            this.labelFromVal.Size = new System.Drawing.Size(35, 13);
-            this.labelFromVal.TabIndex = 8;
-            this.labelFromVal.Text = "empty";
+            this.labelGenderVal.AutoSize = true;
+            this.labelGenderVal.Location = new System.Drawing.Point(73, 158);
+            this.labelGenderVal.Name = "labelGenderVal";
+            this.labelGenderVal.Size = new System.Drawing.Size(35, 13);
+            this.labelGenderVal.TabIndex = 6;
+            this.labelGenderVal.Text = "empty";
+            // 
+            // labelNameVal
+            // 
+            this.labelNameVal.AutoSize = true;
+            this.labelNameVal.Location = new System.Drawing.Point(66, 15);
+            this.labelNameVal.Name = "labelNameVal";
+            this.labelNameVal.Size = new System.Drawing.Size(35, 13);
+            this.labelNameVal.TabIndex = 5;
+            this.labelNameVal.Text = "empty";
+            // 
+            // labelGender
+            // 
+            this.labelGender.AutoSize = true;
+            this.labelGender.Location = new System.Drawing.Point(22, 158);
+            this.labelGender.Name = "labelGender";
+            this.labelGender.Size = new System.Drawing.Size(45, 13);
+            this.labelGender.TabIndex = 4;
+            this.labelGender.Text = "Gender:";
+            // 
+            // labelBirthYear
+            // 
+            this.labelBirthYear.AutoSize = true;
+            this.labelBirthYear.Location = new System.Drawing.Point(19, 180);
+            this.labelBirthYear.Name = "labelBirthYear";
+            this.labelBirthYear.Size = new System.Drawing.Size(54, 13);
+            this.labelBirthYear.TabIndex = 3;
+            this.labelBirthYear.Text = "Birth year:";
+            // 
+            // labelFrom
+            // 
+            this.labelFrom.AutoSize = true;
+            this.labelFrom.Location = new System.Drawing.Point(19, 204);
+            this.labelFrom.Name = "labelFrom";
+            this.labelFrom.Size = new System.Drawing.Size(33, 13);
+            this.labelFrom.TabIndex = 2;
+            this.labelFrom.Text = "From:";
+            // 
+            // labelName
+            // 
+            this.labelName.AutoSize = true;
+            this.labelName.Location = new System.Drawing.Point(22, 15);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(38, 13);
+            this.labelName.TabIndex = 1;
+            this.labelName.Text = "Name:";
+            // 
+            // pictureBoxAbout
+            // 
+            this.pictureBoxAbout.Location = new System.Drawing.Point(22, 41);
+            this.pictureBoxAbout.Name = "pictureBoxAbout";
+            this.pictureBoxAbout.Size = new System.Drawing.Size(110, 102);
+            this.pictureBoxAbout.TabIndex = 0;
+            this.pictureBoxAbout.TabStop = false;
+            this.pictureBoxAbout.Click += new System.EventHandler(this.pictureBoxAbout_Click);
             // 
             // tabControl2
             // 
@@ -714,23 +715,23 @@
             this.panel7.PerformLayout();
             this.tabFriends.ResumeLayout(false);
             this.tabFriends.PerformLayout();
-            this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriendProfile)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.tabPhotos.ResumeLayout(false);
             this.tabPhotos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).EndInit();
             this.tabPosts.ResumeLayout(false);
             this.tabPosts.PerformLayout();
-            this.panelPost.ResumeLayout(false);
-            this.panelPostBody.ResumeLayout(false);
-            this.panelPostBody.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost)).EndInit();
             this.panelCreatePost.ResumeLayout(false);
             this.panelCreatePost.PerformLayout();
+            this.panelPost.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panelPostBody.ResumeLayout(false);
+            this.panelPostBody.PerformLayout();
             this.tabAbout.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();

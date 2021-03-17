@@ -9,7 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
-
+using FacebookDeskAppLogic;
 
 namespace B21_Ex01_Oron_311141188_Gilad_316418854
 {
@@ -231,6 +231,9 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
 
         }
 
+        private void pictureBoxAbout_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

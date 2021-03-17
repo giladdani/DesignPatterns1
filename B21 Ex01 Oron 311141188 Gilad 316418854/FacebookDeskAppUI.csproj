@@ -81,5 +81,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FacebookDeskAppLogic\FacebookDeskAppLogic.csproj">
+      <Project>{19d1ae35-543c-408b-b9a0-31d5c9bbaf99}</Project>
+      <Name>FacebookDeskAppLogic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
