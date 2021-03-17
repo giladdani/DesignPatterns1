@@ -371,7 +371,7 @@
             this.pictureBoxPhoto.Location = new System.Drawing.Point(193, 64);
             this.pictureBoxPhoto.Name = "pictureBoxPhoto";
             this.pictureBoxPhoto.Size = new System.Drawing.Size(198, 206);
-            this.pictureBoxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPhoto.TabIndex = 7;
             this.pictureBoxPhoto.TabStop = false;
             // 

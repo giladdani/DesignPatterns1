@@ -21,8 +21,8 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
         public MainForm()
         {
             InitializeComponent();
-            comboBoxPostsSubFilter.Enabled = false;
-            labelPostsSubFilter.Enabled = false;
+            comboBoxPostsSubFilter.Visible = false;
+            labelPostsSubFilter.Visible = false;
             m_LoggedinUserData = new LoggedinUserData();
         }
 
@@ -52,25 +52,25 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
 
         private void SetPostsListByPlaces(string i_PlaceName)
         {
-            List<PostWrapper> listOfPosts = m_LoggedinUserData.getListOfPostsByPlaceName(i_PlaceName);
+            ICollection<PostWrapper> listOfPosts = m_LoggedinUserData.getPostsByPlaceName(i_PlaceName);
             setListBox(listOfPosts, listBoxShowPosts);
         }
 
         private void SetListBoxPostsByComments(string i_NumOfComments)
         {
-            List<PostWrapper> listOfPosts = m_LoggedinUserData.getListOfPostsByNumOfComments(i_NumOfComments);
+            ICollection<PostWrapper> listOfPosts = m_LoggedinUserData.getPostsByNumOfComments(i_NumOfComments);
             setListBox(listOfPosts, listBoxShowPosts);
         }
 
         private void SetListBoxPostsByLikes(string i_NumOfLikes)
         {
-            List<PostWrapper> listOfPosts = m_LoggedinUserData.getListOfPostsByNumOfLikes(i_NumOfLikes);
+            ICollection<PostWrapper> listOfPosts = m_LoggedinUserData.getPostsByNumOfLikes(i_NumOfLikes);
             setListBox(listOfPosts, listBoxShowPosts);
         }
 
         private void SetListBoxPostsByListOfAll()
         {
-            ICollection<PostWrapper> listOfPosts = m_LoggedinUserData.getAllPosts();
+            ICollection<PostWrapper> listOfPosts = m_LoggedinUserData.FetchAllPosts();
             setListBox(listOfPosts, listBoxShowPosts);
         }
 
@@ -103,18 +103,23 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
 
         private void SetComboboxPostsSubFilterByPlaces()
         {
-
+            labelPostsSubFilter.Text = "Filter by places";
+            m_LoggedinUserData.FetchPostsByPlaces();
             List<string> listOfPlacesNames = m_LoggedinUserData.getPlaceNamesOfPosts();
             SetComboboxPostsSubFilter(listOfPlacesNames);
         }
 
         private void SetComboboxPostsSubFilterByLikes()
         {
+            labelPostsSubFilter.Text = "Filter by likes";
+            m_LoggedinUserData.FetchPostsByNumOfLikes();
             SetComboboxPostsSubFilterByNumericOptions();
         }
 
         private void setComboboxPostsSubFilterByComments()
         {
+            labelPostsSubFilter.Text = "Filter by comments";
+            m_LoggedinUserData.FetchPostsByNumOfComments();
             SetComboboxPostsSubFilterByNumericOptions();
         }
 
@@ -199,6 +204,7 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
         {
             comboBoxPostsSubFilter.Visible = true;
             labelPostsSubFilter.Visible = true;
+            comboBoxPostsSubFilter.Items.Clear();
             listBoxShowPosts.Items.Clear();
         }
 
@@ -213,14 +219,6 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
             try
             {
                 m_LoggedinUserData = new LoggedinUserData();
-                try
-                {
-                    m_LoggedinUserData.FetchPosts();
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show("Problem in fetching posts");
-                }
                 try
                 {
                     m_LoggedinUserData.FetchAlbums();
@@ -263,12 +261,12 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
         private void setListBoxAlbums()
         {
             ICollection<AlbumWrapper> listOfAlbums = m_LoggedinUserData.getAllAlbums();
-            setListBox(listOfAlbums, listBoxPhotos);
+            setListBox(listOfAlbums, listBoxAlbums);
         }
 
         private void setListBoxPhotos(string i_AlbumName)
         {
-            ICollection<PhotoWrapper> listOfPhotos = m_LoggedinUserData.getPhotosByAlbumName(i_AlbumName);
+            ICollection<PhotoWrapper> listOfPhotos = m_LoggedinUserData.FetchPhotosByAlbumName(i_AlbumName);
             setListBox(listOfPhotos, listBoxPhotos);
         }
 
@@ -283,8 +281,6 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
         {
             PhotoWrapper photoWrapper = listBoxPhotos.SelectedItem as PhotoWrapper;
             pictureBoxPhoto.ImageLocation = photoWrapper.Photo.PictureNormalURL;
-
-
         }
 
     }
