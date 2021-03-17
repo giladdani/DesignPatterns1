@@ -26,14 +26,6 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
         }
 
         // Private Methods
-   
-        private void SetListBoxPostsByCollectionOfPosts(ICollection<PostWrapper> collectionOfPosts)
-        {
-            foreach (PostWrapper post in collectionOfPosts)
-            {
-                listBoxShowPosts.Items.Add(post);
-            }
-        }
 
         //----------------------------------------------------------------------//
         //----------------------------------------------------------------------//
@@ -41,6 +33,13 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
         //----------------------------------------------------------------------//
         //----------------------------------------------------------------------//
 
+        private void SetListBoxPostsByCollectionOfPosts(ICollection<PostWrapper> collectionOfPosts)
+        {
+            foreach (PostWrapper post in collectionOfPosts)
+            {
+                listBoxShowPosts.Items.Add(post);
+            }
+        }
         private void SetPostsListByPlaces(string i_PlaceName)
         {
             List<PostWrapper> listOfPosts = getListOfPostsByPlaceName(placeName);
