@@ -214,6 +214,8 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
                 m_LoggedinUserData = new LoggedinUserData();
                 SetUserDetails();
                 SetComboBoxPostsFilter();
+                setListBoxAlbums();
+
                 //Console.WriteLine("Access Token: " + result.AccessToken);
                 //Console.WriteLine("UserName:" + m_User.Name + "\n");
             }
@@ -254,7 +256,8 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
 
         private void listBoxAlbums_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            string albumName = (listBoxAlbums.SelectedItem as AlbumWrapper).ToString();
+            setListBoxPhotos(albumName);
         }
 
         private void listBoxPhotos_SelectedIndexChanged(object sender, EventArgs e)
