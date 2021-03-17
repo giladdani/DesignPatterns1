@@ -15,10 +15,7 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
 {
     public partial class MainForm : Form
     {
-        // Private Members
-        private User m_User;
-        private IDictionary<string, List<PostWrapper>> m_dictionaryOfPostsByPlaces = new Dictionary<string, List<PostWrapper>>();
-        private IDictionary<string, PostWrapper> m_dictionaryOfPostsByPostID = new Dictionary<string, PostWrapper>();
+       
 
         // Constructors
         public MainForm()
@@ -29,47 +26,27 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
         }
 
         // Private Methods
-        private void addPostToDictionaryFromPostsCollection(FacebookObjectCollection<Post> posts)
-        {
-            foreach (Post post in posts)
-            {
-                PostWrapper postWrapper = new PostWrapper(post);
-                Page page = post.Place;
-                if (page != null && page.Name != null)
-                {
-                    addPostToDictionaryByPlace(page.Name, postWrapper);
-                }
-                m_dictionaryOfPostsByPostID.Add(post.Id, postWrapper);
-
-            }
-        }
-
-        private void addPostToDictionaryByPlace(string placeName, PostWrapper post)
-        {
-            if (m_dictionaryOfPostsByPlaces.ContainsKey(placeName))
-            {
-                m_dictionaryOfPostsByPlaces[placeName].Add(post);
-            }
-            else
-            {
-                m_dictionaryOfPostsByPlaces.Add(placeName, new List<PostWrapper>());
-                m_dictionaryOfPostsByPlaces[placeName].Add(post);
-            }
-        }
+   
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string placeName = comboBoxPostsSubFilter.Text;
-            listBoxShowPosts.Items.Clear();
-                
-            if (m_dictionaryOfPostsByPlaces.Count != 0)
-            {
-                List<PostWrapper> listOfPosts = m_dictionaryOfPostsByPlaces[placeName];
-                foreach (PostWrapper post in listOfPosts)
-                {
-                    listBoxShowPosts.Items.Add(post);
+            string optionOfFilter = comboBoxPostsFilter.Text;
+            string optionOfSubFilter = comboBoxPostsSubFilter.Text;
 
-                }
+            listBoxShowPosts.Items.Clear();
+
+            if(optionOfFilter == "places")
+            {
+                setPostsListByPlace(optionOfSubFilter);
+            }
+        }
+
+        private void setPostsListByPlace(string i_PlaceName)
+        {
+            List<PostWrapper> listOfPosts = getListOfPostsByPlaceName(placeName);
+            foreach (PostWrapper post in listOfPosts)
+            {
+                listBoxShowPosts.Items.Add(post);
             }
         }
 
@@ -87,17 +64,8 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
         }
         
 
-        private void setCombobox()
+        private void setComboboxPostsSubFilter()
         {
-            if (m_dictionaryOfPostsByPlaces.Count != 0)
-            {
-                foreach (KeyValuePair<string, List<PostWrapper>> entry in m_dictionaryOfPostsByPlaces)
-                {
-                    string placeName = entry.Key;
-                    comboBoxPostsSubFilter.Items.Add(placeName);
-                }
-            }
-
 
         }
 
@@ -121,32 +89,9 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            string accessToken = "EAApWCcm2aMsBAPX5AVpKgzgOdYRAeafAvP8zPPKisGTUzLAhSqxebpdpzXWPyM0LSoZCDnCQGQNfzexYrzHQTCeCb9sv21F6sQYzt0Gwr6HVK5s8Tejc6ZCI9YzrZARCcvxD9eQ7u1sJvDRndgvhQ165GnU1m9IWy97QJZAH6QZDZD";
             try
             {
-                LoginResult result = FacebookService.Connect(accessToken);
-                //LoginResult result = FacebookService.Login("2909349805975755",
-                //    "public_profile",
-                //    "email",
-                //    "publish_to_groups",
-                //    "user_birthday",
-                //    "user_age_range",
-                //    "user_gender",
-                //    "user_link",
-                //    "user_tagged_places",
-                //    "user_videos",
-                //    "publish_to_groups",
-                //    "groups_access_member_info",
-                //    "user_friends",
-                //    "user_events",
-                //    "user_likes",
-                //    "user_location",
-                //    "user_photos",
-                //    "user_posts",
-                //    "user_hometown"
-                //    );
-
-                m_User = result.LoggedInUser;
+                Login();
                 setUserDetails();
                 fetchPosts();
                 fetchAlbums();
@@ -168,11 +113,6 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
 
         private void fetchPosts()
         {
-            FacebookObjectCollection<Post> posts = m_User.Posts;
-            if (posts.Count != 0)
-            {
-                addPostToDictionaryFromPostsCollection(posts);
-            }
             setCombobox();
             setComboBoxCategoryPosts();
         }
@@ -182,42 +122,20 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
             string category = comboBoxPostsFilter.Text;
             if(category == "All")
             {
-                comboBoxPostsSubFilter.Enabled = false;
-                labelPostsSubFilter.Enabled = false;
+                comboBoxPostsSubFilter.Visible = false;
+                labelPostsSubFilter.Visible = false;
                 setAllPostsToList();
             }
             else if(category == "Places")
             {
-                comboBoxPostsSubFilter.Enabled = true;
-                labelPostsSubFilter.Enabled = true;
+                comboBoxPostsSubFilter.Visible = true;
+                labelPostsSubFilter.Visible = true;
                 listBoxShowPosts.Items.Clear();
             }
         }
 
         private void fetchAlbums()
         {
-            Hashtable hash = new Hashtable();
-            foreach (Album album in m_User.Albums)
-            {
-                if (hash.ContainsKey(album.PrivcaySettings) == false)
-                {
-                    hash.Add(album.PrivcaySettings, album);
-                    comboBoxAlbumPrivacy.Items.Add(album.PrivcaySettings);
-                }
-            }
-        }
-
-        private void comboBoxAlbumPrivacy_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            listBoxAlbums.Items.Clear();
-            string chosenPrivacy = comboBoxAlbumPrivacy.SelectedItem.ToString();
-            foreach (Album album in m_User.Albums)
-            {
-                if (album.PrivcaySettings.Equals(chosenPrivacy))
-                {
-                    listBoxAlbums.Items.Add(album.Name);
-                }
-            }
         }
 
 
