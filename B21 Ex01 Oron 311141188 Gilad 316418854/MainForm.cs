@@ -37,6 +37,7 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
 
         private void setListBox<T>(ICollection<T> list, ListBox listBox)
         {
+            listBox.Items.Clear();
             foreach (T elem in list)
             {
                 listBox.Items.Add(elem);
@@ -241,14 +242,12 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
 
         private void setListBoxAlbums()
         {
-            listBoxAlbums.Items.Clear();
             ICollection<AlbumWrapper> listOfAlbums = m_LoggedinUserData.getAllAlbums();
             setListBox(listOfAlbums, listBoxPhotos);
         }
 
         private void setListBoxPhotos(string i_AlbumName)
         {
-            listBoxPhotos.Items.Clear();
             ICollection<PhotoWrapper> listOfPhotos = m_LoggedinUserData.getPhotosByAlbumName(i_AlbumName);
             setListBox(listOfPhotos, listBoxPhotos);
         }
