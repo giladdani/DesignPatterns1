@@ -213,6 +213,22 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
             try
             {
                 m_LoggedinUserData = new LoggedinUserData();
+                try
+                {
+                    m_LoggedinUserData.FetchPosts();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Problem in fetching posts");
+                }
+                try
+                {
+                    m_LoggedinUserData.FetchAlbums();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Problem in fetching albums");
+                }
                 SetUserDetails();
                 SetComboBoxPostsFilter();
                 setListBoxAlbums();

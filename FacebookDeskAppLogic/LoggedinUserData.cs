@@ -22,8 +22,8 @@ namespace FacebookDeskAppLogic
         public LoggedinUserData()
         {
             login();
-            FetchPosts();
-            FetchAlbums();
+           // FetchPosts();
+           // FetchAlbums();
         }
 
         public User User
@@ -173,7 +173,6 @@ namespace FacebookDeskAppLogic
                     AddPostToDictionaryByComments(postWrapper);
                     AddPostToDictionaryByLikes(postWrapper);
                 }
-
             }
         }
 
@@ -183,6 +182,7 @@ namespace FacebookDeskAppLogic
             {
                 m_ListOfAlbums.Add(new AlbumWrapper(album));
                 int index = 1;
+
                 foreach (Photo photo in album.Photos)
                 {
                     AddElementToDictionaryByKey(album.Name, m_DictionaryOfPhotosByAlbumName, new PhotoWrapper(photo, index));
