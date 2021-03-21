@@ -52,25 +52,29 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
 
         private void SetPostsListByPlaces(string i_PlaceName)
         {
-            ICollection<PostWrapper> listOfPosts = m_LoggedinUserData.getPostsByPlaceName(i_PlaceName);
+            ICollection<Post> listOfPosts = m_LoggedinUserData.getPostsByPlaceName(i_PlaceName);
+            ICollection<PostWrapper> listOfPostsWrapper = genereateListOfPostsWrappers(listOfPosts);
             setListBox(listOfPosts, listBoxShowPosts);
         }
 
         private void SetListBoxPostsByComments(string i_NumOfComments)
         {
-            ICollection<PostWrapper> listOfPosts = m_LoggedinUserData.getPostsByNumOfComments(i_NumOfComments);
+            ICollection<Post> listOfPosts = m_LoggedinUserData.getPostsByNumOfComments(i_NumOfComments);
+            ICollection<PostWrapper> listOfPostsWrapper = genereateListOfPostsWrappers(listOfPosts);
             setListBox(listOfPosts, listBoxShowPosts);
         }
 
         private void SetListBoxPostsByLikes(string i_NumOfLikes)
         {
-            ICollection<PostWrapper> listOfPosts = m_LoggedinUserData.getPostsByNumOfLikes(i_NumOfLikes);
+            ICollection<Post> listOfPosts = m_LoggedinUserData.getPostsByNumOfLikes(i_NumOfLikes);
+            ICollection<PostWrapper> listOfPostsWrapper = genereateListOfPostsWrappers(listOfPosts);
             setListBox(listOfPosts, listBoxShowPosts);
         }
 
         private void SetListBoxPostsByListOfAll()
         {
-            ICollection<PostWrapper> listOfPosts = m_LoggedinUserData.FetchAllPosts();
+            ICollection<Post> listOfPosts = m_LoggedinUserData.FetchAllPosts();
+            ICollection<PostWrapper> listOfPostsWrapper = genereateListOfPostsWrappers(listOfPosts);
             setListBox(listOfPosts, listBoxShowPosts);
         }
 
@@ -232,8 +236,10 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
                 setListBoxAlbums();
                 m_LoggedinUserData.FetchFriends();
                 m_LoggedinUserData.FetchGroups();
-                setListBox(m_LoggedinUserData.getAllFriends(), listBoxFriends);
-                setListBox(m_LoggedinUserData.getAllGroups(), listBoxGroups);
+                ICollection<User> listOfFriends = m_LoggedinUserData.getAllFriends();
+                ICollection<Group> listOfGroups = m_LoggedinUserData.getAllGroups();
+                setListBox(genereateListOfFriendWrappers(listOfFriends), listBoxFriends);
+                setListBox(genereateListOfGroupWrappers(listOfGroups), listBoxGroups);
 
 
                 //Console.WriteLine("Access Token: " + result.AccessToken);
@@ -265,16 +271,17 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
 
         private void setListBoxAlbums()
         {
-            ICollection<AlbumWrapper> listOfAlbums = m_LoggedinUserData.getAllAlbums();
-            setListBox(listOfAlbums, listBoxAlbums);
+            ICollection<Album> listOfAlbums = m_LoggedinUserData.getAllAlbums();
+            ICollection<AlbumWrapper> listOfAlbumsWrapper = genereateListOfAlbumWrappers(listOfAlbums);
+            setListBox(listOfAlbumsWrapper, listBoxAlbums);
         }
 
         private void setListBoxPhotos(string i_AlbumName)
         {
-            ICollection<PhotoWrapper> listOfPhotos = m_LoggedinUserData.FetchPhotosByAlbumName(i_AlbumName);
-            setListBox(listOfPhotos, listBoxPhotos);
+            ICollection<Photo> listOfPhotos = m_LoggedinUserData.FetchPhotosByAlbumName(i_AlbumName);
+            ICollection<PhotoWrapper> listOfPhotosWrapper = genereateListOfPhotosWrappers(listOfPhotos);
+            setListBox(listOfPhotosWrapper, listBoxPhotos);
         }
-
 
         private void listBoxAlbums_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -301,6 +308,70 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
         {
             GroupWrapper groupWrapper = listBoxGroups.SelectedItem as GroupWrapper;
             labelAboutThisGroup.Text = groupWrapper.Group.Description;
+        }
+
+
+        //----------------------------------------------------------------------//
+        //----------------------------------------------------------------------//
+        //---------------------------Wrapper functions--------------------------//
+        //----------------------------------------------------------------------//
+        //----------------------------------------------------------------------//
+
+        private ICollection<PostWrapper> genereateListOfPostsWrappers(ICollection<Post> listOfPosts)
+        {
+            ICollection<PostWrapper> listOfPostWrapper = new List<PostWrapper>();
+            foreach (Post post in listOfPosts)
+            {
+                PostWrapper postWrapper = new PostWrapper(post);
+                listOfPosts.Add(post);
+            }
+            return listOfPostWrapper;
+        }
+
+        private ICollection<UserWrapper> genereateListOfFriendWrappers(ICollection<User> listOfUsers)
+        {
+            ICollection<UserWrapper> listOfUserWrapper = new List<UserWrapper>();
+            foreach (User user in listOfUsers)
+            {
+                UserWrapper userWrapper = new UserWrapper(user);
+                listOfUserWrapper.Add(userWrapper);
+            }
+            return listOfUserWrapper;
+        }
+
+        private ICollection<GroupWrapper> genereateListOfGroupWrappers(ICollection<Group> listOfGroups)
+        {
+            ICollection<GroupWrapper> listOfGroupsWrapper = new List<GroupWrapper>();
+            foreach (Group group in listOfGroups)
+            {
+                GroupWrapper groupWrapper = new GroupWrapper(group);
+                listOfGroupsWrapper.Add(groupWrapper);
+            }
+            return listOfGroupsWrapper;
+        }
+
+        private ICollection<AlbumWrapper> genereateListOfAlbumWrappers(ICollection<Album> listOfAlbums)
+        {
+            ICollection<AlbumWrapper> listOfAlbumsWrapper = new List<AlbumWrapper>();
+            foreach (Album album in listOfAlbums)
+            {
+                AlbumWrapper albumWrapper = new AlbumWrapper(album);
+                listOfAlbumsWrapper.Add(albumWrapper);
+            }
+            return listOfAlbumsWrapper;
+        }
+
+        private ICollection<PhotoWrapper> genereateListOfPhotosWrappers(ICollection<Photo> listOfPhotos)
+        {
+            ICollection<PhotoWrapper> listOfAlbumsWrapper = new List<PhotoWrapper>();
+            int index = 1;
+            foreach (Photo photo in listOfPhotos)
+            {
+                PhotoWrapper photoWrapper = new PhotoWrapper(photo, index);
+                listOfAlbumsWrapper.Add(photoWrapper);
+                index++;
+            }
+            return listOfAlbumsWrapper;
         }
     }
 }

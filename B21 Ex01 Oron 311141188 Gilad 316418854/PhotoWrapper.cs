@@ -10,6 +10,7 @@ namespace FacebookDeskAppLogic
     {
         private Photo m_Photo;
         private int m_Index;
+        
         public PhotoWrapper(Photo i_Photo, int i_Index)
         {
             m_Photo = i_Photo;

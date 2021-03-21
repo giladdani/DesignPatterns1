@@ -35,19 +35,15 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="LikesAndPostsCounter.cs" />
     <Compile Include="LoggedinUserData.cs" />
-    <Compile Include="AlbumWrapper.cs" />
-    <Compile Include="PhotoWrapper.cs" />
-    <Compile Include="GroupWrapper.cs" />
-    <Compile Include="UserWrapper.cs" />
-    <Compile Include="PostWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Facebook">
-      <HintPath>..\..\WindowsFormsApp1\WindowsFormsApp1\Facebook.dll</HintPath>
+      <HintPath>..\B21 Ex01 Oron 311141188 Gilad 316418854\Facebook.dll</HintPath>
     </Reference>
     <Reference Include="FbGraphApiWrapper">
-      <HintPath>..\..\WindowsFormsApp1\WindowsFormsApp1\FbGraphApiWrapper.dll</HintPath>
+      <HintPath>..\B21 Ex01 Oron 311141188 Gilad 316418854\FbGraphApiWrapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
   </ItemGroup>
