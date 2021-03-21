@@ -16,6 +16,9 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
     public partial class MainForm : Form
     {
         private LoggedinUserData m_LoggedinUserData;
+        private AppSettings m_Settings;
+        private MainForm mainForm;
+        private FriendsWindow m_FriendsWindow;
 
         // Constructors
         public MainForm()
@@ -24,6 +27,11 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
             comboBoxPostsSubFilter.Visible = false;
             labelPostsSubFilter.Visible = false;
             m_LoggedinUserData = new LoggedinUserData();
+            m_FriendsWindow = new FriendsWindow();
+            m_FriendsWindow.TopLevel = false;
+            m_FriendsWindow.TopMost = true;
+            tabControl2.TabPages[5].Controls.Add(m_FriendsWindow);
+            tabControl2.TabPages[5].Show();
         }
 
         // Private Methods
@@ -34,6 +42,21 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
         //----------------------------------------------------------------------//
         //----------------------------------------------------------------------//
 
+        private void logInWindow_Shown(object sender, EventArgs e)
+        {
+            try
+            {
+                m_Settings = AppSettings.LoadFromFile();
+                if (m_Settings.RememberUser)
+                {
+                   // MainForm.LoginToFaceBook();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
         private void setListBox<T>(ICollection<T> list, ListBox listBox)
         {

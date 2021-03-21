@@ -87,6 +87,7 @@
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.buttonBestHourToPost = new System.Windows.Forms.Button();
             this.labelBestHourToPost = new System.Windows.Forms.Label();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabGroups.SuspendLayout();
@@ -705,6 +706,7 @@
             this.tabControl2.Controls.Add(this.tabPhotos);
             this.tabControl2.Controls.Add(this.tabFriends);
             this.tabControl2.Controls.Add(this.tabGroups);
+            this.tabControl2.Controls.Add(this.tabPage1);
             this.tabControl2.Location = new System.Drawing.Point(29, 22);
             this.tabControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl2.Name = "tabControl2";
@@ -731,6 +733,15 @@
             this.labelBestHourToPost.Size = new System.Drawing.Size(120, 17);
             this.labelBestHourToPost.TabIndex = 18;
             this.labelBestHourToPost.Text = "Best hour to post:";
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(739, 501);
+            this.tabPage1.TabIndex = 8;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -841,6 +852,7 @@
         private System.Windows.Forms.ListBox listBoxGroups;
         private System.Windows.Forms.Label labelBestHourToPost;
         private System.Windows.Forms.Button buttonBestHourToPost;
+        private System.Windows.Forms.TabPage tabPage1;
     }
 }
 
