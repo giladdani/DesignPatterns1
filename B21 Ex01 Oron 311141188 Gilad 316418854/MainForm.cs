@@ -373,5 +373,12 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
             }
             return listOfAlbumsWrapper;
         }
+
+        private void buttonBestHourToPost_Click(object sender, EventArgs e)
+        {
+            int bestHourToPost = m_LoggedinUserData.GetBestTimeForStatus();
+            string text = $"Best hour to post: {bestHourToPost}:00";
+            labelBestHourToPost.Text = text;
+        }
     }
 }

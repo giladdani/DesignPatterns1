@@ -85,6 +85,8 @@
             this.labelName = new System.Windows.Forms.Label();
             this.pictureBoxAbout = new System.Windows.Forms.PictureBox();
             this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.buttonBestHourToPost = new System.Windows.Forms.Button();
+            this.labelBestHourToPost = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabGroups.SuspendLayout();
@@ -430,6 +432,8 @@
             // 
             // tabPosts
             // 
+            this.tabPosts.Controls.Add(this.labelBestHourToPost);
+            this.tabPosts.Controls.Add(this.buttonBestHourToPost);
             this.tabPosts.Controls.Add(this.panelCreatePost);
             this.tabPosts.Controls.Add(this.comboBoxPostsFilter);
             this.tabPosts.Controls.Add(this.labelPostsFilter);
@@ -523,7 +527,7 @@
             this.listBoxShowPosts.Location = new System.Drawing.Point(32, 175);
             this.listBoxShowPosts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listBoxShowPosts.Name = "listBoxShowPosts";
-            this.listBoxShowPosts.Size = new System.Drawing.Size(207, 164);
+            this.listBoxShowPosts.Size = new System.Drawing.Size(195, 84);
             this.listBoxShowPosts.TabIndex = 1;
             this.listBoxShowPosts.SelectedIndexChanged += new System.EventHandler(this.listBoxPosts_SelectedIndexChanged);
             // 
@@ -709,6 +713,25 @@
             this.tabControl2.TabIndex = 14;
             this.tabControl2.Tag = "fds";
             // 
+            // buttonBestHourToPost
+            // 
+            this.buttonBestHourToPost.Location = new System.Drawing.Point(38, 319);
+            this.buttonBestHourToPost.Name = "buttonBestHourToPost";
+            this.buttonBestHourToPost.Size = new System.Drawing.Size(189, 26);
+            this.buttonBestHourToPost.TabIndex = 17;
+            this.buttonBestHourToPost.Text = "Get Best Hour To Post";
+            this.buttonBestHourToPost.UseVisualStyleBackColor = true;
+            this.buttonBestHourToPost.Click += new System.EventHandler(this.buttonBestHourToPost_Click);
+            // 
+            // labelBestHourToPost
+            // 
+            this.labelBestHourToPost.AutoSize = true;
+            this.labelBestHourToPost.Location = new System.Drawing.Point(55, 294);
+            this.labelBestHourToPost.Name = "labelBestHourToPost";
+            this.labelBestHourToPost.Size = new System.Drawing.Size(120, 17);
+            this.labelBestHourToPost.TabIndex = 18;
+            this.labelBestHourToPost.Text = "Best hour to post:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -816,6 +839,8 @@
         private System.Windows.Forms.Label labelAboutThisGroup;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ListBox listBoxGroups;
+        private System.Windows.Forms.Label labelBestHourToPost;
+        private System.Windows.Forms.Button buttonBestHourToPost;
     }
 }
 
