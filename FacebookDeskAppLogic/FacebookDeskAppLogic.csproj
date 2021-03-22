@@ -35,7 +35,6 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AppSettings.cs" />
     <Compile Include="LikesAndPostsCounter.cs" />
     <Compile Include="LoggedinUserData.cs" />
   </ItemGroup>

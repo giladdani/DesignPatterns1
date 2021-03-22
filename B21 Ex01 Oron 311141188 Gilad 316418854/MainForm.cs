@@ -16,9 +16,7 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
     public partial class MainForm : Form
     {
         private LoggedinUserData m_LoggedinUserData;
-        private AppSettings m_Settings;
         private MainForm mainForm;
-        private FriendsWindow m_FriendsWindow;
 
         // Constructors
         public MainForm()
@@ -27,11 +25,7 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
             comboBoxPostsSubFilter.Visible = false;
             labelPostsSubFilter.Visible = false;
             m_LoggedinUserData = new LoggedinUserData();
-            m_FriendsWindow = new FriendsWindow();
-            m_FriendsWindow.TopLevel = false;
-            m_FriendsWindow.TopMost = true;
-            tabControl2.TabPages[5].Controls.Add(m_FriendsWindow);
-            tabControl2.TabPages[5].Show();
+
         }
 
         // Private Methods
@@ -42,21 +36,7 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
         //----------------------------------------------------------------------//
         //----------------------------------------------------------------------//
 
-        private void logInWindow_Shown(object sender, EventArgs e)
-        {
-            try
-            {
-                m_Settings = AppSettings.LoadFromFile();
-                if (m_Settings.RememberUser)
-                {
-                   // MainForm.LoginToFaceBook();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+
 
         private void setListBox<T>(ICollection<T> list, ListBox listBox)
         {
@@ -77,28 +57,28 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
         {
             ICollection<Post> listOfPosts = m_LoggedinUserData.getPostsByPlaceName(i_PlaceName);
             ICollection<PostWrapper> listOfPostsWrapper = genereateListOfPostsWrappers(listOfPosts);
-            setListBox(listOfPosts, listBoxShowPosts);
+            setListBox(listOfPostsWrapper, listBoxShowPosts);
         }
 
         private void SetListBoxPostsByComments(string i_NumOfComments)
         {
             ICollection<Post> listOfPosts = m_LoggedinUserData.getPostsByNumOfComments(i_NumOfComments);
             ICollection<PostWrapper> listOfPostsWrapper = genereateListOfPostsWrappers(listOfPosts);
-            setListBox(listOfPosts, listBoxShowPosts);
+            setListBox(listOfPostsWrapper, listBoxShowPosts);
         }
 
         private void SetListBoxPostsByLikes(string i_NumOfLikes)
         {
             ICollection<Post> listOfPosts = m_LoggedinUserData.getPostsByNumOfLikes(i_NumOfLikes);
             ICollection<PostWrapper> listOfPostsWrapper = genereateListOfPostsWrappers(listOfPosts);
-            setListBox(listOfPosts, listBoxShowPosts);
+            setListBox(listOfPostsWrapper, listBoxShowPosts);
         }
 
         private void SetListBoxPostsByListOfAll()
         {
             ICollection<Post> listOfPosts = m_LoggedinUserData.FetchAllPosts();
             ICollection<PostWrapper> listOfPostsWrapper = genereateListOfPostsWrappers(listOfPosts);
-            setListBox(listOfPosts, listBoxShowPosts);
+            setListBox(listOfPostsWrapper, listBoxShowPosts);
         }
 
         private void listBoxPosts_SelectedIndexChanged(object sender, EventArgs e)
@@ -346,7 +326,7 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
             foreach (Post post in listOfPosts)
             {
                 PostWrapper postWrapper = new PostWrapper(post);
-                listOfPosts.Add(post);
+                listOfPostWrapper.Add(postWrapper);
             }
             return listOfPostWrapper;
         }
