@@ -6,7 +6,6 @@ using System.Text;
 using Facebook;
 using FacebookWrapper.ObjectModel;
 using FacebookWrapper;
-using FacebookWrapper.ObjectModel;
 
 namespace FacebookDeskAppLogic
 {
@@ -25,9 +24,7 @@ namespace FacebookDeskAppLogic
 
         public LoggedinUserData()
         {
-            login();
-           // FetchPosts();
-           // FetchAlbums();
+            Login();
         }
 
         public User User
@@ -36,6 +33,7 @@ namespace FacebookDeskAppLogic
             {
                 return m_User;
             }
+
             set
             {
                 m_User = value;
@@ -47,7 +45,6 @@ namespace FacebookDeskAppLogic
         //---------------------------Dictionary methods-------------------------//
         //----------------------------------------------------------------------//
         //----------------------------------------------------------------------//
-
         private void AddElementToDictionaryByKey<T>(string i_Key, IDictionary<string, List<T>> i_Dictionary, T i_Element)
         {
             if (i_Dictionary.ContainsKey(i_Key))
@@ -65,6 +62,7 @@ namespace FacebookDeskAppLogic
         {
             AddElementToDictionaryByKey(i_PlaceName, m_DictionaryOfPostsByPlaces, i_Post);
         }
+
         private void AddPostToDictionaryByLikes(Post i_Post)
         {
             int numOfLikes = i_Post.LikedBy.Count();
@@ -102,36 +100,32 @@ namespace FacebookDeskAppLogic
         private void AddPostToDictionaryByComments(Post i_Post)
         {
             int numOfComments = i_Post.Comments.Count();
-
             AddPostToDictionaryByNumericValue(numOfComments, m_DictionaryOfPostsByComments, i_Post);
-
         }
 
-        public void login()
+        public void Login()
         {
-            string accessToken = "EAApWCcm2aMsBAPX5AVpKgzgOdYRAeafAvP8zPPKisGTUzLAhSqxebpdpzXWPyM0LSoZCDnCQGQNfzexYrzHQTCeCb9sv21F6sQYzt0Gwr6HVK5s8Tejc6ZCI9YzrZARCcvxD9eQ7u1sJvDRndgvhQ165GnU1m9IWy97QJZAH6QZDZD";
-                LoginResult result = FacebookService.Connect(accessToken);
-                //LoginResult result = FacebookService.Login("2909349805975755",
-                //    "public_profile",
-                //    "email",
-                //    "publish_to_groups",
-                //    "user_birthday",
-                //    "user_age_range",
-                //    "user_gender",
-                //    "user_link",
-                //    "user_tagged_places",
-                //    "user_videos",
-                //    "publish_to_groups",
-                //    "groups_access_member_info",
-                //    "user_friends",
-                //    "user_events",
-                //    "user_likes",
-                //    "user_location",
-                //    "user_photos",
-                //    "user_posts",
-                //    "user_hometown"
-                //    );
-                m_User = result.LoggedInUser;
+            LoginResult result = FacebookService.Login(
+                "2909349805975755",
+                "public_profile",
+                "email",
+                "publish_to_groups",
+                "user_birthday",
+                "user_age_range",
+                "user_gender",
+                "user_link",
+                "user_tagged_places",
+                "user_videos",
+                "publish_to_groups",
+                "groups_access_member_info",
+                "user_friends",
+                "user_events",
+                "user_likes",
+                "user_location",
+                "user_photos",
+                "user_posts",
+                "user_hometown");
+            m_User = result.LoggedInUser;
         }
 
         //----------------------------------------------------------------------//
@@ -139,7 +133,6 @@ namespace FacebookDeskAppLogic
         //---------------------------Fetch methods------------------------------//
         //----------------------------------------------------------------------//
         //----------------------------------------------------------------------//
-
         public List<Post> FetchAllPosts()
         {
             FacebookObjectCollection<Post> posts = m_User.Posts;
@@ -148,6 +141,7 @@ namespace FacebookDeskAppLogic
             {
                 listOfPosts.Add(post);
             }
+
             return listOfPosts;
         }
 
@@ -223,11 +217,10 @@ namespace FacebookDeskAppLogic
                         listOfPhotos.Add(photo);
                         index++;
                     }
-
                 }
             }
-            return listOfPhotos;
 
+            return listOfPhotos;
         }
 
         //----------------------------------------------------------------------//
@@ -235,8 +228,7 @@ namespace FacebookDeskAppLogic
         //-----------------------------Get methods------------------------------//
         //----------------------------------------------------------------------//
         //----------------------------------------------------------------------//
-
-        public List<string> getPlaceNamesOfPosts()
+        public List<string> GetPlaceNamesOfPosts()
         {
             List<string> placesNamesList = new List<string>();
 
@@ -252,7 +244,7 @@ namespace FacebookDeskAppLogic
             return placesNamesList;
         }
 
-        public ICollection<Post> getAllPosts()
+        public ICollection<Post> GetAllPosts()
         {
             if (m_User.Posts.Count != 0)
             {
@@ -264,36 +256,37 @@ namespace FacebookDeskAppLogic
             }
         }
 
-        public ICollection<User> getAllFriends()
+        public ICollection<User> GetAllFriends()
         {
             return m_ListOfFriends;
         }
 
-        public ICollection<Group> getAllGroups()
+        public ICollection<Group> GetAllGroups()
         {
             return m_ListOfGroups;
         }
 
-        public ICollection<Album> getAllAlbums()
+        public ICollection<Album> GetAllAlbums()
         {
              return m_ListOfAlbums;
         }
-        public ICollection<Post> getPostsByPlaceName(string i_PlaceName)
+
+        public ICollection<Post> GetPostsByPlaceName(string i_PlaceName)
         {
             return m_DictionaryOfPostsByPlaces[i_PlaceName];
         }
 
-        public ICollection<Post> getPostsByNumOfLikes(string i_NumOfLikes)
+        public ICollection<Post> GetPostsByNumOfLikes(string i_NumOfLikes)
         {
             return m_DictionaryOfPostsByLikes[i_NumOfLikes];
         }
 
-        public ICollection<Post> getPostsByNumOfComments(string i_NumOfComments)
+        public ICollection<Post> GetPostsByNumOfComments(string i_NumOfComments)
         {
             return m_DictionaryOfPostsByLikes[i_NumOfComments];
         }
 
-        public ICollection<Photo> getPhotosByAlbumName(string i_AlbumName)
+        public ICollection<Photo> GetPhotosByAlbumName(string i_AlbumName)
         {
             return m_DictionaryOfPhotosByAlbumName[i_AlbumName];
         }
@@ -303,7 +296,6 @@ namespace FacebookDeskAppLogic
         //--------------------Feature bestTimeForStatus methods-----------------//
         //----------------------------------------------------------------------//
         //----------------------------------------------------------------------//
-
         public int GetBestTimeForStatus()
         {
             int hourWithMaxLikesPerPost = -1;
@@ -315,12 +307,12 @@ namespace FacebookDeskAppLogic
                 {
                     DateTime time = post.CreatedTime.GetValueOrDefault();
                     int hour = time.Hour;
-                    int numOfLikes = post.LikedBy.Count();
+                    int numOfLikes = post.LikedBy.Count;
                     likesAndPostCounterArray[hour].AddLikesAndIncPosts(numOfLikes);
                 }
-                catch (Exception e)
+                catch (Exception ex)
                 {
-                    Console.WriteLine(e);
+                    Console.WriteLine(ex);
                     throw;
                 }
             }
@@ -335,6 +327,7 @@ namespace FacebookDeskAppLogic
                     max = counter.CalcAvgLikesPerPost();
                 }
             }
+
             return hourWithMaxLikesPerPost;
         }
     }

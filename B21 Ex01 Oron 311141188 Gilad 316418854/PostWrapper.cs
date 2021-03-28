@@ -21,6 +21,7 @@ namespace FacebookDeskAppLogic
             {
                 return m_Post;
             }
+
             set
             {
                 m_Post = value;

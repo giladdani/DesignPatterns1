@@ -21,6 +21,7 @@ namespace FacebookDeskAppLogic
             {
                 return m_Album;
             }
+
             set
             {
                 m_Album = value;

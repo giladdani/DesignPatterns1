@@ -21,6 +21,7 @@ namespace FacebookDeskAppLogic
             {
                 return m_Group;
             }
+
             set
             {
                 m_Group = value;

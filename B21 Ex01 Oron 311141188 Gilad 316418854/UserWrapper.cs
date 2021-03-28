@@ -21,6 +21,7 @@ namespace FacebookDeskAppLogic
             {
                 return m_User;
             }
+
             set
             {
                 m_User = value;

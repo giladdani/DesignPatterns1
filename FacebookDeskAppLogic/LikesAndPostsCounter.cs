@@ -18,7 +18,7 @@ namespace FacebookDeskAppLogic
 
         public double CalcAvgLikesPerPost()
         {
-            return ((double)m_TotalLikes / m_NumOfPosts);
+            return (double)m_TotalLikes / m_NumOfPosts;
         }
 
         public void AddLikesAndIncPosts(int i_NumOfLikes)
@@ -33,6 +33,7 @@ namespace FacebookDeskAppLogic
             {
                 return m_TotalLikes;
             }
+
             set
             {
                 m_TotalLikes = value;
@@ -45,6 +46,7 @@ namespace FacebookDeskAppLogic
             {
                 return m_NumOfPosts;
             }
+
             set
             {
                 m_NumOfPosts = value;

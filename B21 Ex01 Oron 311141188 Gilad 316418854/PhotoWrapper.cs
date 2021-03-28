@@ -23,6 +23,7 @@ namespace FacebookDeskAppLogic
             {
                 return m_Photo;
             }
+
             set
             {
                 m_Photo = value;
