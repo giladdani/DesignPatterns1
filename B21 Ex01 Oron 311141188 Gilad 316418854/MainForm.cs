@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 using FacebookDeskAppLogic;
-using Message = FacebookWrapper.ObjectModel.Message;
 
 namespace B21_Ex01_Oron_311141188_Gilad_316418854
 {
@@ -23,8 +22,6 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
             comboBoxPostsSubFilter.Visible = false;
             labelPostsSubFilter.Visible = false;
         }
-
-        // Private Methods
 
         //----------------------------------------------------------------------//
         //----------------------------------------------------------------------//
