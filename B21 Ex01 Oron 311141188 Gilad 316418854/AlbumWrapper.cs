@@ -1,6 +1,6 @@
 ﻿using FacebookWrapper.ObjectModel;
 
-namespace FacebookDeskAppLogic
+namespace FacebookDeskAppUI
 {
     public class AlbumWrapper
     {

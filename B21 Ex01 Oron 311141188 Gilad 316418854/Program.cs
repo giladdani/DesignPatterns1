@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace B21_Ex01_Oron_311141188_Gilad_316418854
+namespace FacebookDeskAppUI
 {
     public static class Program
     {

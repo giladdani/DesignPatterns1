@@ -1,4 +1,4 @@
-﻿namespace B21_Ex01_Oron_311141188_Gilad_316418854
+﻿namespace FacebookDeskAppUI
 {
     public partial class MainForm
     {
