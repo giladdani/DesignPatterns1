@@ -17,16 +17,17 @@ namespace FacebookDeskAppLogic
         private IDictionary<string, List<Post>> m_DictionaryOfPostsByLikes = new Dictionary<string, List<Post>>();
         private IDictionary<string, List<Post>> m_DictionaryOfPostsByComments = new Dictionary<string, List<Post>>();
         private IDictionary<string, List<Photo>> m_DictionaryOfPhotosByAlbumName = new Dictionary<string, List<Photo>>();
-
         private ICollection<Album> m_ListOfAlbums = new List<Album>();
         private ICollection<User> m_ListOfFriends = new List<User>();
         private ICollection<Group> m_ListOfGroups = new List<Group>();
 
+        // Constructors
         public LoggedinUserData()
         {
             Login();
         }
 
+        // Properties
         public User User
         {
             get
@@ -58,18 +59,25 @@ namespace FacebookDeskAppLogic
             }
         }
 
-        private void AddPostToDictionaryByPlace(string i_PlaceName, Post i_Post)
+        private void addPostToDictionaryByPlace(string i_PlaceName, Post i_Post)
         {
             AddElementToDictionaryByKey(i_PlaceName, m_DictionaryOfPostsByPlaces, i_Post);
         }
 
-        private void AddPostToDictionaryByLikes(Post i_Post)
+        private void addPostToDictionaryByLikes(Post i_Post)
         {
-            int numOfLikes = i_Post.LikedBy.Count();
-            AddPostToDictionaryByNumericValue(numOfLikes, m_DictionaryOfPostsByLikes, i_Post);
+            try
+            {
+                int numOfLikes = i_Post.LikedBy.Count;
+                addPostToDictionaryByNumericValue(numOfLikes, m_DictionaryOfPostsByLikes, i_Post);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        private void AddPostToDictionaryByNumericValue(int numericValue, IDictionary<string, List<Post>> i_DictionaryOfPosts, Post i_Post)
+        private void addPostToDictionaryByNumericValue(int numericValue, IDictionary<string, List<Post>> i_DictionaryOfPosts, Post i_Post)
         {
             if (numericValue >= 1 && numericValue <= 10)
             {
@@ -97,10 +105,10 @@ namespace FacebookDeskAppLogic
             }
         }
 
-        private void AddPostToDictionaryByComments(Post i_Post)
+        private void addPostToDictionaryByComments(Post i_Post)
         {
-            int numOfComments = i_Post.Comments.Count();
-            AddPostToDictionaryByNumericValue(numOfComments, m_DictionaryOfPostsByComments, i_Post);
+            int numOfComments = i_Post.Comments.Count;
+            addPostToDictionaryByNumericValue(numOfComments, m_DictionaryOfPostsByComments, i_Post);
         }
 
         public void Login()
@@ -155,7 +163,7 @@ namespace FacebookDeskAppLogic
                 Page page = post.Place;
                 if (page != null && page.Name != null)
                 {
-                    AddPostToDictionaryByPlace(page.Name, post);
+                    addPostToDictionaryByPlace(page.Name, post);
                 }
             }
         }
@@ -166,7 +174,7 @@ namespace FacebookDeskAppLogic
             m_DictionaryOfPostsByLikes.Clear();
             foreach (Post post in posts)
             {
-                AddPostToDictionaryByLikes(post);
+                addPostToDictionaryByLikes(post);
             }
         }
 
@@ -176,7 +184,7 @@ namespace FacebookDeskAppLogic
             m_DictionaryOfPostsByComments.Clear();
             foreach (Post post in posts)
             {
-                AddPostToDictionaryByComments(post);
+                addPostToDictionaryByComments(post);
             }
         }
 
@@ -208,16 +216,23 @@ namespace FacebookDeskAppLogic
         {
             int index = 1;
             List<Photo> listOfPhotos = new List<Photo>();
-            foreach (Album album in m_User.Albums)
+            try
             {
-                if(album.Name == i_AlbumName)
-                { 
-                    foreach(Photo photo in album.Photos)
+                foreach(Album album in m_User.Albums)
+                {
+                    if(album.Name == i_AlbumName)
                     {
-                        listOfPhotos.Add(photo);
-                        index++;
+                        foreach(Photo photo in album.Photos)
+                        {
+                            listOfPhotos.Add(photo);
+                            index++;
+                        }
                     }
                 }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
             }
 
             return listOfPhotos;
@@ -278,12 +293,26 @@ namespace FacebookDeskAppLogic
 
         public ICollection<Post> GetPostsByNumOfLikes(string i_NumOfLikes)
         {
-            return m_DictionaryOfPostsByLikes[i_NumOfLikes];
+            if(m_DictionaryOfPhotosByAlbumName.ContainsKey(i_NumOfLikes))
+            {
+                return m_DictionaryOfPostsByLikes[i_NumOfLikes];
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public ICollection<Post> GetPostsByNumOfComments(string i_NumOfComments)
         {
-            return m_DictionaryOfPostsByLikes[i_NumOfComments];
+            if(m_DictionaryOfPostsByComments.ContainsKey(i_NumOfComments))
+            {
+                return m_DictionaryOfPostsByComments[i_NumOfComments];
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public ICollection<Photo> GetPhotosByAlbumName(string i_AlbumName)
@@ -312,8 +341,7 @@ namespace FacebookDeskAppLogic
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex);
-                    throw;
+                    throw ex;
                 }
             }
 

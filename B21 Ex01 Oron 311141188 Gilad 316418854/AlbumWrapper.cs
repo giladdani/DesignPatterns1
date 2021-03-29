@@ -8,13 +8,29 @@ namespace FacebookDeskAppLogic
 {
     public class AlbumWrapper
     {
+        // Private Members
         private Album m_Album;
 
+        // Constructors
         public AlbumWrapper(Album i_Album)
         {
             m_Album = i_Album;
         }
 
+        // Public Methods
+        public override string ToString()
+        {
+            if (string.IsNullOrEmpty(m_Album.Name))
+            {
+                return string.Format("Unnamed Album");
+            }
+            else
+            {
+                return m_Album.Name;
+            }
+        }
+
+        // Properties
         public Album Album
         {
             get
@@ -25,18 +41,6 @@ namespace FacebookDeskAppLogic
             set
             {
                 m_Album = value;
-            }
-        }
-
-        public override string ToString()
-        {
-            if(string.IsNullOrEmpty(m_Album.Name))
-            {
-                return string.Format("Unnamed Album");
-            }
-            else
-            {
-                return m_Album.Name;
             }
         }
     }

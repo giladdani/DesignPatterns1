@@ -48,29 +48,41 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
         private void SetPostsListByPlaces(string i_PlaceName)
         {
             ICollection<Post> listOfPosts = m_LoggedinUserData.GetPostsByPlaceName(i_PlaceName);
-            ICollection<PostWrapper> listOfPostsWrapper = genereateListOfPostsWrappers(listOfPosts);
-            setListBox(listOfPostsWrapper, listBoxShowPosts);
+            if(listOfPosts != null)
+            {
+                ICollection<PostWrapper> listOfPostsWrapper = generateListOfPostsWrappers(listOfPosts);
+                setListBox(listOfPostsWrapper, listBoxShowPosts);
+            }
         }
 
         private void SetListBoxPostsByComments(string i_NumOfComments)
         {
             ICollection<Post> listOfPosts = m_LoggedinUserData.GetPostsByNumOfComments(i_NumOfComments);
-            ICollection<PostWrapper> listOfPostsWrapper = genereateListOfPostsWrappers(listOfPosts);
-            setListBox(listOfPostsWrapper, listBoxShowPosts);
+            if(listOfPosts != null)
+            {
+                ICollection<PostWrapper> listOfPostsWrapper = generateListOfPostsWrappers(listOfPosts);
+                setListBox(listOfPostsWrapper, listBoxShowPosts);
+            }
         }
 
         private void SetListBoxPostsByLikes(string i_NumOfLikes)
         {
             ICollection<Post> listOfPosts = m_LoggedinUserData.GetPostsByNumOfLikes(i_NumOfLikes);
-            ICollection<PostWrapper> listOfPostsWrapper = genereateListOfPostsWrappers(listOfPosts);
-            setListBox(listOfPostsWrapper, listBoxShowPosts);
+            if(listOfPosts != null)
+            {
+                ICollection<PostWrapper> listOfPostsWrapper = generateListOfPostsWrappers(listOfPosts);
+                setListBox(listOfPostsWrapper, listBoxShowPosts);
+            }
         }
 
         private void SetListBoxPostsByListOfAll()
         {
             ICollection<Post> listOfPosts = m_LoggedinUserData.FetchAllPosts();
-            ICollection<PostWrapper> listOfPostsWrapper = genereateListOfPostsWrappers(listOfPosts);
-            setListBox(listOfPostsWrapper, listBoxShowPosts);
+            if(listOfPosts != null)
+            {
+                ICollection<PostWrapper> listOfPostsWrapper = generateListOfPostsWrappers(listOfPosts);
+                setListBox(listOfPostsWrapper, listBoxShowPosts);
+            }
         }
 
         private void listBoxPosts_SelectedIndexChanged(object sender, EventArgs e)
@@ -107,9 +119,16 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
 
         private void SetComboboxPostsSubFilterByLikes()
         {
-            labelPostsSubFilter.Text = "Filter by likes";
-            m_LoggedinUserData.FetchPostsByNumOfLikes();
-            SetComboboxPostsSubFilterByNumericOptions();
+            try
+            {
+                m_LoggedinUserData.FetchPostsByNumOfLikes();
+                labelPostsSubFilter.Text = "Filter by likes";
+                SetComboboxPostsSubFilterByNumericOptions();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Could not fetch posts :(");
+            }
         }
 
         private void setComboboxPostsSubFilterByComments()
@@ -169,7 +188,7 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
         private void comboBoxPostsFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             string category = comboBoxPostsFilter.Text;
-            if (category == "All")
+            if (category == k_AllTitle)
             {
                 comboBoxPostsSubFilter.Visible = false;
                 labelPostsSubFilter.Visible = false;
@@ -227,8 +246,8 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
                 m_LoggedinUserData.FetchGroups();
                 ICollection<User> listOfFriends = m_LoggedinUserData.GetAllFriends();
                 ICollection<Group> listOfGroups = m_LoggedinUserData.GetAllGroups();
-                setListBox(genereateListOfFriendWrappers(listOfFriends), listBoxFriends);
-                setListBox(genereateListOfGroupWrappers(listOfGroups), listBoxGroups);
+                setListBox(generateListOfFriendWrappers(listOfFriends), listBoxFriends);
+                setListBox(generateListOfGroupWrappers(listOfGroups), listBoxGroups);
             }
             catch (Exception ex)
             {
@@ -254,15 +273,22 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
         private void setListBoxAlbums()
         {
             ICollection<Album> listOfAlbums = m_LoggedinUserData.GetAllAlbums();
-            ICollection<AlbumWrapper> listOfAlbumsWrapper = genereateListOfAlbumWrappers(listOfAlbums);
+            ICollection<AlbumWrapper> listOfAlbumsWrapper = generateListOfAlbumWrappers(listOfAlbums);
             setListBox(listOfAlbumsWrapper, listBoxAlbums);
         }
 
         private void setListBoxPhotos(string i_AlbumName)
         {
-            ICollection<Photo> listOfPhotos = m_LoggedinUserData.FetchPhotosByAlbumName(i_AlbumName);
-            ICollection<PhotoWrapper> listOfPhotosWrapper = genereateListOfPhotosWrappers(listOfPhotos);
-            setListBox(listOfPhotosWrapper, listBoxPhotos);
+            try
+            {
+                ICollection<Photo> listOfPhotos = m_LoggedinUserData.FetchPhotosByAlbumName(i_AlbumName);
+                ICollection<PhotoWrapper> listOfPhotosWrapper = generateListOfPhotosWrappers(listOfPhotos);
+                setListBox(listOfPhotosWrapper, listBoxPhotos);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Could not get photos :(");
+            }
         }
 
         private void listBoxAlbums_SelectedIndexChanged(object sender, EventArgs e)
@@ -283,7 +309,7 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
 
             labelFriendNameVal.Text = userWrapper.User.Name;
             labelFriendGenderVal.Text = userWrapper.User.Gender.ToString();
-            labelFriendBirthYearVal.Text = userWrapper.User.Birthday.ToString();
+            labelFriendBirthYearVal.Text = userWrapper.User.Birthday;
         }
 
         private void listBoxGroups_SelectedIndexChanged(object sender, EventArgs e)
@@ -297,7 +323,7 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
         //---------------------------Wrapper functions--------------------------//
         //----------------------------------------------------------------------//
         //----------------------------------------------------------------------//
-        private ICollection<PostWrapper> genereateListOfPostsWrappers(ICollection<Post> listOfPosts)
+        private ICollection<PostWrapper> generateListOfPostsWrappers(ICollection<Post> listOfPosts)
         {
             ICollection<PostWrapper> listOfPostWrapper = new List<PostWrapper>();
             foreach (Post post in listOfPosts)
@@ -309,7 +335,7 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
             return listOfPostWrapper;
         }
 
-        private ICollection<UserWrapper> genereateListOfFriendWrappers(ICollection<User> listOfUsers)
+        private ICollection<UserWrapper> generateListOfFriendWrappers(ICollection<User> listOfUsers)
         {
             ICollection<UserWrapper> listOfUserWrapper = new List<UserWrapper>();
             foreach (User user in listOfUsers)
@@ -321,7 +347,7 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
             return listOfUserWrapper;
         }
 
-        private ICollection<GroupWrapper> genereateListOfGroupWrappers(ICollection<Group> listOfGroups)
+        private ICollection<GroupWrapper> generateListOfGroupWrappers(ICollection<Group> listOfGroups)
         {
             ICollection<GroupWrapper> listOfGroupsWrapper = new List<GroupWrapper>();
             foreach (Group group in listOfGroups)
@@ -333,7 +359,7 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
             return listOfGroupsWrapper;
         }
 
-        private ICollection<AlbumWrapper> genereateListOfAlbumWrappers(ICollection<Album> listOfAlbums)
+        private ICollection<AlbumWrapper> generateListOfAlbumWrappers(ICollection<Album> listOfAlbums)
         {
             ICollection<AlbumWrapper> listOfAlbumsWrapper = new List<AlbumWrapper>();
             foreach (Album album in listOfAlbums)
@@ -345,7 +371,7 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
             return listOfAlbumsWrapper;
         }
 
-        private ICollection<PhotoWrapper> genereateListOfPhotosWrappers(ICollection<Photo> listOfPhotos)
+        private ICollection<PhotoWrapper> generateListOfPhotosWrappers(ICollection<Photo> listOfPhotos)
         {
             ICollection<PhotoWrapper> listOfAlbumsWrapper = new List<PhotoWrapper>();
             int index = 1;
@@ -361,9 +387,16 @@ namespace B21_Ex01_Oron_311141188_Gilad_316418854
 
         private void buttonBestHourToPost_Click(object sender, EventArgs e)
         {
-            int bestHourToPost = m_LoggedinUserData.GetBestTimeForStatus();
-            string text = $"Best hour to post: {bestHourToPost}:00";
-            labelBestHourToPost.Text = text;
+            try
+            {
+                int bestHourToPost = m_LoggedinUserData.GetBestTimeForStatus();
+                string text = $"Best hour to post: {bestHourToPost}:00";
+                labelBestHourToPost.Text = text;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Could not calculate Best time :(");
+            }
         }
 
         private void buttonCreatePost_Click(object sender, EventArgs e)

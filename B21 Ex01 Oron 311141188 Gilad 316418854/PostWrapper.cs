@@ -8,13 +8,29 @@ namespace FacebookDeskAppLogic
 {
     public class PostWrapper
     {
+        // Private Members
         private Post m_Post;
 
+        // Constructors
         public PostWrapper(Post i_Post)
         {
             m_Post = i_Post;
         }
 
+        // Public Methods
+        public override string ToString()
+        {
+            if(string.IsNullOrEmpty(m_Post.Name))
+            {
+                return string.Format("Unnamed Post");
+            }
+            else
+            {
+                return m_Post.Name;
+            }
+        }
+
+        // Properties
         public Post Post
         {
             get
@@ -25,18 +41,6 @@ namespace FacebookDeskAppLogic
             set
             {
                 m_Post = value;
-            }
-        }
-
-        public override string ToString()
-        {
-            if(string.IsNullOrEmpty(m_Post.Name))
-            {
-                return string.Format("Unnamed Post");
-            }
-            else
-            {
-                return m_Post.Name;
             }
         }
     }
